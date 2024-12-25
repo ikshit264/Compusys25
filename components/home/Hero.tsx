@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Hero() {
     return (
-      <div className="min-h-screen relative text-center">
+      <div className="min-h-screen relative text-center flex items-center">
         <div className="grid lg:grid-cols-2 gap-6 p-6 relative">
           {/* Left Column */}
           <div className="bg-[#559CFF] rounded-3xl p-12 flex flex-col justify-center text-[#131200]">
