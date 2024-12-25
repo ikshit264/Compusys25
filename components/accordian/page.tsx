@@ -1,39 +1,38 @@
 "use client"
 import React, { useState } from 'react';
-import Project from './project'; 
-import Modal from './modal';
-// import Modal from './Modal'; // Make sure this is correctly defined
+import Project from './project/Project'; 
+import Modal from './modal/Modal';
 
 const Accordion = () => {
   const projects = [
     {
       title: "Pioneering Excellence",
-      src: "c2montreal.png",
+      src: "/assets/images/c2montreal.png",
       color: "#000000",
     },
     {
       title: "Inspiring Futures",
-      src: "officestudio.png",
+      src: "/assets/images/officestudio.png",
       color: "#8C8C8C",
     },
     {
       title: "Uniting Diversity",
-      src: "locomotive.png",
+      src: "/assets/images/locomotive.png",
       color: "#EFE8D3",
     },
     {
       title:"Organize Impactful Events",
-      src: "image4.png",
+      src: "/assets/images/image4.png",
       color: "#706D63",
     },
     {
         title:"Empower Through Knowledge",
-        src: "image5.png",
+        src: "/assets/images/image5.png",
         color: "#706D63",
       },
       {
         title:"Forge Lasting Connections:",
-        src: "image6.png",
+        src: "/assets/images/image6.png",
         color: "#706D63",
       },
 
@@ -44,7 +43,7 @@ const Accordion = () => {
   const [modal, setModal] = useState({ active: false, index: 0 });
 
   return (
-    <main className='p-4'>
+    <main className='p-6'>
       <div>
         {projects.map((project, index) => (
           <Project

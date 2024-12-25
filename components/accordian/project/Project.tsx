@@ -2,7 +2,13 @@
 import React from 'react'
 import styles from './style.module.css';
 
-export default function index({index, title, setModal}) {
+interface ProjectProps {
+    index: number;
+    title: string;
+    setModal: React.Dispatch<React.SetStateAction<{ active: boolean; index: number }>>;
+  }
+
+export default function Project({ index, title, setModal }: ProjectProps) {
 
     return (
         <div onMouseEnter={() => {setModal({active: true, index})}} onMouseLeave={() => {setModal({active: false, index})}} className={styles.project}>

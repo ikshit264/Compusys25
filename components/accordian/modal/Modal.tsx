@@ -11,8 +11,13 @@ const scaleAnimation = {
     closed: {scale: 0, x:"-50%", y:"-50%", transition: {duration: 0.4, ease: [0.32, 0, 0.67, 0]}}
 }
 
-export default function index({modal, projects}: any) {
+interface ModalProps {
+  modal: { active: boolean; index: number };
+  projects: { title: string; src: string; color: string }[];
+  setModal: React.Dispatch<React.SetStateAction<{ active: boolean; index: number }>>;
+}
 
+const Modal: React.FC<ModalProps> = ({ modal, projects }) => {
   const { active, index } = modal;
   const modalContainer = useRef(null);
   const cursor = useRef(null);
@@ -20,14 +25,14 @@ export default function index({modal, projects}: any) {
 
   useEffect( () => {
     //Move Container
-    let xMoveContainer = gsap.quickTo(modalContainer.current, "left", {duration: 0.8, ease: "power3"})
-    let yMoveContainer = gsap.quickTo(modalContainer.current, "top", {duration: 0.8, ease: "power3"})
+    const xMoveContainer = gsap.quickTo(modalContainer.current, "left", {duration: 0.8, ease: "power3"})
+    const yMoveContainer = gsap.quickTo(modalContainer.current, "top", {duration: 0.8, ease: "power3"})
     //Move cursor
-    let xMoveCursor = gsap.quickTo(cursor.current, "left", {duration: 0.5, ease: "power3"})
-    let yMoveCursor = gsap.quickTo(cursor.current, "top", {duration: 0.5, ease: "power3"})
+    const xMoveCursor = gsap.quickTo(cursor.current, "left", {duration: 0.5, ease: "power3"})
+    const yMoveCursor = gsap.quickTo(cursor.current, "top", {duration: 0.5, ease: "power3"})
     //Move cursor label
-    let xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "left", {duration: 0.45, ease: "power3"})
-    let yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", {duration: 0.45, ease: "power3"})
+    const xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "left", {duration: 0.45, ease: "power3"})
+    const yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", {duration: 0.45, ease: "power3"})
 
     window.addEventListener('mousemove', (e) => {
       const { pageX, pageY } = e;
@@ -45,11 +50,11 @@ export default function index({modal, projects}: any) {
         <motion.div ref={modalContainer} variants={scaleAnimation} initial="initial" animate={active ? "enter" : "closed"} className={styles.modalContainer}>
             <div style={{top: index * -100 + "%"}} className={styles.modalSlider}>
             {
-                projects.map( (project: { src: any; color: any; }, index: any) => {
+                projects.map( (project: { src: string; color: string; }, index: number) => {
                 const { src, color } = project
                 return <div className={styles.modal} style={{backgroundColor: color}} key={`modal_${index}`}>
                     <Image 
-                    src={`/assets/images/${src}`}
+                    src={`/images/${src}`}
                     width={300}
                     height={0}
                     alt="image"
@@ -65,3 +70,5 @@ export default function index({modal, projects}: any) {
     </>
   )
 }
+
+export default Modal
