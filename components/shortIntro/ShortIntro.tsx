@@ -12,7 +12,7 @@ const ShortIntro = () => {
                     image2Start={{ bottom: '30%', right: '30%' }}
                 />
                 <div>
-                    <div className='flex justify-center flex-col items-center text-white text-center'>
+                    <div className='flex justify-center flex-col items-center text-[#161111] text-center'>
                         <h2 className='text-4xl font-bold mb-2 '>Let&apos;s make our world cleaner and Greener!</h2>
                         <p className='text-center text-lg'>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore, distinctio!

@@ -5,11 +5,17 @@ export default function Hero() {
       <div className="min-h-screen relative text-center flex items-center">
         <div className="grid lg:grid-cols-2 gap-6 p-6 relative">
           {/* Left Column */}
-          <div className="bg-[#559CFF] rounded-3xl p-12 flex flex-col justify-center text-[#131200]">
+          <div className="bg-[#fe4a22] rounded-3xl p-12 flex flex-col justify-center text-[#161111]">
             <div className='flex flex-col gap-6 items-center '>
               <div className="flex items-center justify-center gap-2">
-                <div className="h-5 w-5 bg-black rounded-full" />
-                <span className="font-medium text-xl">COMPUSYS <span className='font-bold'>में आपका स्वागत हैं।</span></span>
+                <div className="size-5 bg-black rounded-full" />
+                <span className="text-2xl font-semibold">COMPUSYS <span className='font-bold'>में आपका स्वागत हैं।</span></span>
+                {/* <span className="font-bold text-2xl">
+                  COMPUSYS{' '}
+                  <span className="font-extrabold bg-gradient-to-r to-[--background] from-[#1b1a1f] bg-clip-text text-transparent">
+                    में आपका स्वागत है।
+                  </span>
+                </span> */}
               </div>
               <h1 className="text-5xl font-bold leading-tighter">
                 Experience the fusion of Technology and Culture
