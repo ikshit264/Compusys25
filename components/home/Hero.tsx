@@ -61,7 +61,7 @@ export default function Hero() {
           <div className="flex items-center justify-center gap-2">
             <div className="size-5 bg-black rounded-full" />
             <span className="text-2xl font-semibold">
-              COMPUSYS <span className="font-bold">में आपका स्वागत है।</span>
+              COMPUSYS <span className="font-bold font-kalam">में आपका स्वागत है।</span>
             </span>
           </div>
           <h1 className="text-5xl font-bold leading-tighter">
