@@ -1,4 +1,4 @@
-import Accordion from "@/components/accordian/page";
+import Accordian from "@/components/accordian/Accordian";
 import Hero from "@/components/home/Hero";
 import ShortIntro from "@/components/shortIntro/ShortIntro";
 
@@ -7,7 +7,7 @@ export default function Home () {
     <main className="">
       <Hero />
       <ShortIntro/>
-      <Accordion />
+      <Accordian />
     </main>
   )
 }

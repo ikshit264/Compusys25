@@ -1,11 +1,11 @@
 import React from 'react'
-import "./fotter.css"
+import './footer.css'
 import Note from './Note'
 import FooterLink from './FooterLink'
 
 const Footer = () => {
     return (
-        <div className='flex w-full justify-evenly pb-8'>
+        <footer className='flex w-full justify-evenly pb-8 mt-28'>
             <Note />
             <div className='flex flex-col gap-3'>
                 <div className='text-gray-400 text-lg'>ELSEWHERE</div>
@@ -25,7 +25,7 @@ const Footer = () => {
                 <FooterLink link='/' msg='Website' />
                 </div>
             </div>
-        </div>
+        </footer>
 
     )
 }

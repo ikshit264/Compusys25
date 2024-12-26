@@ -1,5 +1,5 @@
 import React from 'react'
-import "./fotter.css"
+import "./footer.css"
 
 const Note = () => {
     return (

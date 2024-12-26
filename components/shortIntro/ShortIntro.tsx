@@ -6,7 +6,7 @@ import ImageFloat from './ImageFloat';
 const ShortIntro = () => {
     return (
         <div>
-            <div className='flex w-full flex-row items-center justify-around p-8'>
+            <div className='flex w-full flex-row items-center justify-around p-8 mt-12'>
                 <ImageFloat
                     image1Start={{ top: '10%', left: '10%' }}
                     image2Start={{ bottom: '30%', right: '30%' }}
