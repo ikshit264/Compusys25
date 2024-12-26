@@ -1,6 +1,0 @@
-.diagonal-split {
-    position: absolute;
-    inset: 0;
-    /* transform: rotate(45deg); */
-    background: linear-gradient(to bottom left, #e5e5e5 50%, #ff9100 50%);
-}

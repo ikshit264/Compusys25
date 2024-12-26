@@ -37,22 +37,6 @@ const Accordian = () => {
       tagColor: "#5733FF",
       date: "1-2-2030",
     },
-    {
-      title: "Empower Through Knowledge",
-      src: "image5.png",
-      color: "#706D63",
-      tag: "Puja",
-      tagColor: "#FF33A1",
-      date: "1-2-2030",
-    },
-    {
-      title: "Forge Lasting Connections",
-      src: "image6.png",
-      color: "#706D63",
-      tag: "Kru",
-      tagColor: "#33FFF3",
-      date: "1-2-2030",
-    },
   ];
 
   const [modal, setModal] = useState({ active: false, index: 0 });
