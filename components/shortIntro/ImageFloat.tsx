@@ -52,7 +52,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({ image1Start, image2Start }) => 
     };
 
     return (
-        <div className="relative w-40 h-40" onMouseMove={handleMouseMove}>
+        <div className="relative w-56 h-56" onMouseMove={handleMouseMove}>
             <motion.div
                 className="absolute"
                 style={{ top: image1Start.top, left: image1Start.left }}
@@ -63,7 +63,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({ image1Start, image2Start }) => 
                 }
                 onHoverEnd={() => setHoveredImage(null)}
             >
-                <div className="w-12 h-12 relative overflow-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
+                <div className="w-20 h-20 relative overflow-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
                     <Image
                         src="/assets/images/manzar.jpg"
                         alt="Floating image 1"
@@ -82,7 +82,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({ image1Start, image2Start }) => 
                 }
                 onHoverEnd={() => setHoveredImage(null)}
             >
-                <div className="w-12 h-12 relative overflow-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
+                <div className="w-20 h-20 relative overflow-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
                     <Image
                         src="/assets/images/manzar.jpg"
                         alt="Floating image 2"
