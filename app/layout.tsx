@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Kalam } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
+import { ReduxProvider } from "@/hooks/IsPhone";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,8 +65,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${combinedFontClassName} antialiased`}>
-        {children}
-        <Footer />
+        <ReduxProvider>
+          {children}
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );

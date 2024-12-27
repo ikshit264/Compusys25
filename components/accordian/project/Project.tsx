@@ -7,7 +7,6 @@ interface ProjectProps {
   title: string;
   tag: string;
   date: string;
-  color: string;
   setModal: React.Dispatch<React.SetStateAction<{ active: boolean; index: number }>>;
 }
 
@@ -20,12 +19,12 @@ const formatDate = (date: string) => {
   });
 };
 
-export default function Project({ index, title, tag, date, color, setModal }: ProjectProps) {
+export default function Project({ index, title, tag, date, setModal }: ProjectProps) {
   return (
     <div
       onMouseEnter={() => setModal({ active: true, index })}
       onMouseLeave={() => setModal({ active: false, index })}
-      className={`${styles.project}  border rounded-lg shadow-md`}
+      className={`${styles.project}`}
     >
       <div className="w-full grid grid-cols-3 gap-4 items-center">
         {/* Title */}
@@ -37,7 +36,7 @@ export default function Project({ index, title, tag, date, color, setModal }: Pr
         <div className="text-left">
           <div
             className="px-3 w-fit py-1 rounded-full text-white font-medium text-sm"
-            style={{ backgroundColor: color }}
+            style={{ backgroundColor: '#121212' }}
           >
             {tag}
           </div>

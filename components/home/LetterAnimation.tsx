@@ -54,7 +54,7 @@ export default function LetterAnimation({
   staggerChildren = 0.03,
   ease = 'easeOut',
 }: LetterAnimationProps) {
-  const letters = Array.from(text)
+  const words = text.split(' ') // Split the text into words
 
   const selectedEffect = predefinedEffects[effect]
   
@@ -89,16 +89,15 @@ export default function LetterAnimation({
       initial="hidden"
       animate="visible"
     >
-      {letters.map((letter, index) => (
+      {words.map((word, index) => (
         <motion.span
           key={index}
           variants={child}
-          style={{ display: 'inline-block', whiteSpace: 'pre' }}
+          style={{ display: 'inline-block', whiteSpace: 'pre', marginRight: '0.2em' }}
         >
-          {letter === '/' ? <br /> : letter}
+          {word}
         </motion.span>
       ))}
     </motion.span>
   )
 }
-
