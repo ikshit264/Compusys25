@@ -67,7 +67,6 @@ export default function RootLayout({
       <body className={`${combinedFontClassName} antialiased`}>
         <ReduxProvider>
           {children}
-          <Footer />
         </ReduxProvider>
       </body>
     </html>

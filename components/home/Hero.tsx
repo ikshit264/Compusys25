@@ -6,19 +6,24 @@ import LetterAnimation from './LetterAnimation'
 import AnimatedGrid from './AnimatedGrid'
 import { useIsPhone } from '@/hooks/IsPhone'
 
-export default function Hero() {
+interface HeroProps {
+  onAnimationComplete?: () => void;
+}
+
+export default function Hero({ onAnimationComplete }: HeroProps) {
   const isMobileView = useIsPhone();
 
-  const [isExpanded, setIsExpanded] = useState(true);
   const parentRef = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
 
+  const [isExpanded, setIsExpanded] = useState(true);
   // State to store heights of each div
   const [parentHeight, setParentHeight] = useState(0);
   const [imageHeight, setImageHeight] = useState(0);
   const [progress, setProgress] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   // Get the heights of the divs once they have been rendered
   useEffect(() => {
@@ -31,22 +36,35 @@ export default function Hero() {
     if (contentRef.current) {
       setContentHeight(contentRef.current.offsetHeight);
     }
+
   });
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsExpanded(false);
-    }, 9000);
-
+      if (onAnimationComplete) {
+        onAnimationComplete(); // Notify parent when animation is complete
+      }
+    }, 8000);
     const progressInterval = setInterval(() => {
       setProgress((prev) => (prev < 100 ? prev + 1 : 100));
-    }, 80);
-
+    }, 75);
+    
+    
     return () => {
-      clearTimeout(timer);
       clearInterval(progressInterval);
+      clearTimeout(timer);
     };
+  }, [onAnimationComplete]);
+
+
+  useEffect(() => {
+    setIsClient(true);
   }, []);
+
+  if (!isClient) {
+    return null; // Avoid rendering until `isClient` is true
+  }
 
   return (
     !isMobileView ? (
@@ -75,7 +93,7 @@ export default function Hero() {
           </motion.span>
         </motion.div>
 
-        <div className={`grid grid-cols-2 gap-6 p-6 text-center bg-white rounded-2xl ${isExpanded ? "border-2 border-black" : ""}`}>
+        <div className={`grid grid-cols-2 gap-6 p-6 text-center items-center bg-white rounded-2xl ${isExpanded ? "border-2 border-black" : ""}`}>
           {/* Left Column */}
           <motion.div
             initial={{ x: -1000 }}
@@ -145,7 +163,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Right Column */}
-          <div className="relative rounded-3xl overflow-hidden h-full">
+          <div className="relative flex items-center rounded-3xl overflow-hidden h-full">
             <AnimatedGrid
               finalImage="/assets/images/manzar.jpg"
               images={[

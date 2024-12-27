@@ -37,21 +37,10 @@ const Accordian = () => {
 
   const [modal, setModal] = useState({ active: false, index: 0 });
 
-  // Helper function to format the date
-  // const formatDate = (dateString: string) => {
-  //   const [day, month, year] = dateString.split("-");
-  //   const formattedDate = new Date(Number(year), Number(month) - 1, Number(day));
-  //   return formattedDate.toLocaleDateString("en-US", {
-  //     year: "numeric",
-  //     month: "long",
-  //     day: "numeric",
-  //   });
-  // };
-
   return (
     <main className="w-full mt-12">
       <div className={`flex flex-col items-center justify-center`}>
-        
+
         {/* Project List */}
         {projects.map((project, index) => (
           <Project

@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useIsPhone } from "@/hooks/IsPhone";
 
 interface ImageFloatProps {
-  image1Start: { top: string; left: string };
-  image2Start: { bottom: string; right: string };
+  image1Start: { top: string; left: string, duration: number };
+  image2Start: { bottom: string; right: string, duration: number };
 }
 
 const ImageFloat: React.FC<ImageFloatProps> = ({
@@ -22,6 +23,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
       setHoveredImage({ ...hoveredImage, x: e.clientX, y: e.clientY });
     }
   };
+  const isMobileView = useIsPhone();
 
   const floatVariants = {
     float1: {
@@ -30,12 +32,12 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
       transition: {
         y: {
           repeat: Infinity,
-          duration: 6,
+          duration: image2Start.duration - 3,
           ease: "easeInOut",
         },
         x: {
           repeat: Infinity,
-          duration: 7,
+          duration: image1Start.duration - image2Start.duration / 2,
           ease: "easeInOut",
         },
       },
@@ -46,12 +48,12 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
       transition: {
         y: {
           repeat: Infinity,
-          duration: 8,
+          duration: image1Start.duration,
           ease: "easeInOut",
         },
         x: {
           repeat: Infinity,
-          duration: 9,
+          duration: image2Start.duration,
           ease: "easeInOut",
         },
       },
@@ -59,9 +61,9 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
   };
 
   return (
-    <div className="relative w-56 h-56" onMouseMove={handleMouseMove}>
+    <div className="relative w-56 h-56 " onMouseMove={handleMouseMove}>
       <motion.div
-        className="absolute"
+        className="absolute overflow-hidden"
         style={{ top: image1Start.top, left: image1Start.left }}
         variants={floatVariants}
         animate="float1"
@@ -74,7 +76,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
         }
         onHoverEnd={() => setHoveredImage(null)}
       >
-        <div className="w-20 h-20 relative overflow-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
+        <div className="w-20 h-20 relative overflow-x-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
           <Image
             src="/assets/images/manzar.jpg"
             alt="Floating image 1"
@@ -84,7 +86,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
         </div>
       </motion.div>
       <motion.div
-        className="absolute"
+        className="absolute overflow-hidden"
         style={{ bottom: image2Start.bottom, right: image2Start.right }}
         variants={floatVariants}
         animate="float2"
@@ -97,7 +99,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
         }
         onHoverEnd={() => setHoveredImage(null)}
       >
-        <div className="w-20 h-20 relative overflow-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
+        <div className="w-20 h-20 relative overflow-x-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
           <Image
             src="/assets/images/manzar.jpg"
             alt="Floating image 2"
@@ -112,7 +114,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
           animate={{ y: 0, scale: 1, opacity: 1 }} // Final state: original size, at cursor, fully visible
           exit={{ y: 50, scale: 0.8, opacity: 0 }} // Exit animation for smooth disappearance
           transition={{
-            duration: 0.4, // Duration of the animation
+            duration: 0.3, // Duration of the animation
             ease: "easeOut", // Easing function for smooth effect
           }}
           style={{
@@ -122,7 +124,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
             zIndex: 1000,
             pointerEvents: "none", // Prevent mouse events on this element
           }}
-          className="w-72 h-72"
+          className={`${isMobileView ? "w-48 h-48" : "w-72 h-72"}`}
         >
           <Image
             src={hoveredImage.src}

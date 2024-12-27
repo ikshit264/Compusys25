@@ -85,13 +85,14 @@ const AnimatedGrid = ({ images, finalImage }: AnimatedGridProps) => {
           initial={{ x: 0, y: 0, opacity: 0 }}
           animate={{ x: 0, y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0 }}
+          className='rounded'
         >
           <Image
             src={finalImage}
             alt="Desert landscape"
             width={800}
             height={600}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover "
           />
         </motion.div>
       )}

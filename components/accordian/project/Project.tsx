@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import styles from './style.module.css';
+import { useIsPhone } from '@/hooks/IsPhone';
 
 interface ProjectProps {
   index: number;
@@ -20,6 +21,9 @@ const formatDate = (date: string) => {
 };
 
 export default function Project({ index, title, tag, date, setModal }: ProjectProps) {
+
+  const isMobileView = useIsPhone();
+
   return (
     <div
       onMouseEnter={() => setModal({ active: true, index })}
@@ -49,7 +53,7 @@ export default function Project({ index, title, tag, date, setModal }: ProjectPr
       </div>
 
       {/* Arrow Icon */}
-      <div className="mt-4 border-2 border-dashed border-gray-800 p-2 rounded-full flex justify-center">
+      {!isMobileView && <div className="mt-4 border-2 border-dashed border-gray-800 p-2 rounded-full flex justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -60,7 +64,7 @@ export default function Project({ index, title, tag, date, setModal }: ProjectPr
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
         </svg>
-      </div>
+      </div>}
     </div>
   );
 }

@@ -57,7 +57,7 @@ export default function LetterAnimation({
   const words = text.split(' ') // Split the text into words
 
   const selectedEffect = predefinedEffects[effect]
-  
+
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
@@ -92,12 +92,24 @@ export default function LetterAnimation({
       {words.map((word, index) => (
         <motion.span
           key={index}
-          variants={child}
-          style={{ display: 'inline-block', whiteSpace: 'pre', marginRight: '0.2em' }}
+          style={{ display: 'inline-block', marginRight: '0.5rem' }}
         >
-          {word}
+          {word.split('').map((char, charIndex) => (
+            <motion.span
+              key={charIndex}
+              variants={child}
+              style={{
+                display: 'inline-block',
+                whiteSpace: 'pre',
+                marginRight: '0em',
+              }}
+            >
+              {char}
+            </motion.span>
+          ))}
         </motion.span>
       ))}
     </motion.span>
+
   )
 }
