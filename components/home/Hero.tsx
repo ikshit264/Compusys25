@@ -53,7 +53,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
       setContentHeight(contentRef.current.offsetHeight);
     }
 
-  });
+  }, [parentRef.current, imageRef.current, contentRef.current]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

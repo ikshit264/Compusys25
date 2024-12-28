@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Kalam } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import Footer from "@/components/footer/Footer";
 import { ReduxProvider } from "@/hooks/IsPhone";
 
 const geistSans = Geist({

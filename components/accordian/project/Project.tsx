@@ -22,7 +22,7 @@ const formatDate = (date: string) => {
 
 export default function Project({ index, title, tag, date, setModal }: ProjectProps) {
 
-  const isMobileView = useIsPhone();
+  // const isMobileView = useIsPhone();
 
   return (
     <div
