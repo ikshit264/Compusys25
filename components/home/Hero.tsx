@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import { motion } from 'framer-motion'
@@ -53,7 +54,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
       setContentHeight(contentRef.current.offsetHeight);
     }
 
-  }, [parentRef.current, imageRef.current, contentRef.current]);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {

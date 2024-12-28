@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 import styles from './style.module.css';
-import { useIsPhone } from '@/hooks/IsPhone';
 
 interface ProjectProps {
   index: number;
