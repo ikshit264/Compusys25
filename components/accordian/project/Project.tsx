@@ -30,17 +30,16 @@ export default function Project({ index, title, tag, date, setModal }: ProjectPr
       onMouseLeave={() => setModal({ active: false, index })}
       className={`${styles.project}`}
     >
-      <div className="w-full grid grid-cols-3 gap-4 items-center">
+      <div className="w-full grid md:grid-cols-3 gap-4 items-center">
         {/* Title */}
         <div className="text-left">
-          <h2 className="text-lg font-semibold">{title}</h2>
+          <h2 className="text-2xl font-fontbo text-[#2f4230]">{title}</h2>
         </div>
 
         {/* Tag */}
         <div className="text-left">
           <div
-            className="px-3 w-fit py-1 rounded-full text-white font-medium text-sm"
-            style={{ backgroundColor: '#121212' }}
+            className={`${styles.tag} px-3 w-fit py-1 rounded-full font-medium font-kalam text-sm outline outline-2 outline-[#2f4230]/30`}
           >
             {tag}
           </div>
@@ -48,23 +47,35 @@ export default function Project({ index, title, tag, date, setModal }: ProjectPr
 
         {/* Date */}
         <div className="text-left">
-          <span className="text-sm text-gray-600">{formatDate(date)}</span>
+          <div className={`${styles.date} text-base text-[#2f4230] font-fontbo`}>{formatDate(date)}</div>
         </div>
       </div>
 
       {/* Arrow Icon */}
-      {!isMobileView && <div className="mt-4 border-2 border-dashed border-gray-800 p-2 rounded-full flex justify-center">
+      {/* {!isMobileView && <div className={`${styles.arrow} p-2 rounded-full flex justify-center`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-6 h-6"
+          stroke="#2f4230"
+          className="size-6"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
         </svg>
-      </div>}
+      </div>} */}
+      <div className={`${styles.arrow} p-2 rounded-full flex justify-center`}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="#2f4230"
+          className="size-6"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+        </svg>
+      </div>
     </div>
   );
 }

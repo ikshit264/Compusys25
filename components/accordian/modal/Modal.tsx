@@ -115,7 +115,7 @@ const Modal: React.FC<ModalProps> = ({ modal, projects }) => {
       ></motion.div>
       <motion.div
         ref={cursorLabel}
-        className={styles.cursorLabel}
+        className={`${styles.cursorLabel} font-kalam`}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}

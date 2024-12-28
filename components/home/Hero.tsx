@@ -24,6 +24,22 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
   const [progress, setProgress] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
   const [isClient, setIsClient] = useState(false);
+  // const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setViewportHeight(window.innerHeight);
+  //   };
+  
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
+
+  // const parentHeight1 = parentRef.current ? parentRef.current.clientHeight : 0;
+  // const imageHeight1 = imageRef.current ? imageRef.current.clientHeight : 0;
+
+  // // Use vh for mobile responsiveness
+  // const mobileImageHeight = isExpanded ? '0vh' : `${Math.max(parentHeight1 - imageHeight1, 0)}px`;
 
   // Get the heights of the divs once they have been rendered
   useEffect(() => {
@@ -76,7 +92,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
       >
         {/* Progress animation */}
         <motion.div
-          className="absolute z-10 right-0 bottom-0 flex items-center justify-center rounded-xl w-[250px] bg-black/70 text-white text-7xl font-bold"
+          className="absolute z-10 right-0 bottom-2 flex items-center justify-center rounded-xl w-[250px] bg-transperant text-[#ffce70] text-7xl font-bold font-fontfo"
           initial={{ opacity: 1 }}
           animate={progress === 100 ? { opacity: 0 } : { opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -93,7 +109,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
           </motion.span>
         </motion.div>
 
-        <div className={`grid grid-cols-2 gap-6 p-6 text-center items-center bg-white rounded-2xl ${isExpanded ? "border-2 border-black" : ""}`}>
+        <div className={`grid grid-cols-2 gap-6 p-6 text-center items-center  rounded-2xl ${isExpanded ? "bg-[#f5f0e1]" : ""}`}>
           {/* Left Column */}
           <motion.div
             initial={{ x: -1000 }}
@@ -105,17 +121,17 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
               mass: 0.1,
               delay: 0.7,
             }}
-            className="bg-[#fe4a22] rounded-3xl p-12 flex flex-col justify-center text-[#161111] h-full"
+            className="bg-[#2f4230] rounded-3xl p-12 flex flex-col justify-center text-[#161111] h-full"
           >
             <div className="flex flex-col gap-6 items-center">
               <div className="flex items-center justify-center gap-2">
                 <span className="text-2xl font-semibold flex gap-2">
-                  <span className='flex items-center gap-1 justify-center'>
+                  <span className='flex items-center gap-2 justify-center font-kalam text-[#91c085]'>
                     <motion.span
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 1, delay: 1 }}
-                      className="size-5 bg-black rounded-full"
+                      className="size-[1.12rem] bg-[#f0e7ce] mb-2 rounded-full"
                     />
                     <LetterAnimation
                       text={`COMPUSYS`}
@@ -128,7 +144,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
                     />
                   </span>
                   <motion.span
-                    className="font-bold"
+                    className="font-bold text-[#91c085] font-kalam"
                     initial={{ opacity: 0, x: 0 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 8 }}
@@ -137,7 +153,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
                   </motion.span>
                 </span>
               </div>
-              <h1 className="text-5xl font-bold leading-tighter">
+              <h1 className="text-5xl font-bold leading-tighter text-[#b2d99a] font-fontbo">
                 <LetterAnimation
                   text={`Experience the fusion of Technology and Culture`}
                   delay={3}
@@ -148,7 +164,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
                   animate={{ opacity: 1, y: 0 }}
                 />
               </h1>
-              <p className="text-lg leading-tight">
+              <p className="text-lg leading-tight font-fontfo text-[#f0e7ce]">
                 <LetterAnimation
                   delay={4}
                   duration={0.8}
@@ -182,7 +198,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
         </div>
       </motion.div>
     ) : (
-      <div ref={parentRef}>
+      <div ref={parentRef} className='p-4'>
         <motion.div
           initial={{ padding: 20 }}
           animate={{ padding: 0 }}
@@ -190,12 +206,14 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
           className={`min-h-screen relative flex flex-col items-center`}
         >
           {/* Image animation */}
-          <div ref={imageRef}>
+          <div ref={imageRef}>  
             <motion.div
-              className="w-full"
+              className="w-full rounded-3xl overflow-hidden"
               initial={{ y: 0 }}
               animate={{
-                y: isExpanded ? 0 : `${parentHeight - imageHeight}px`, // Use dynamic height
+                // y: mobileImageHeight,
+                // y: isExpanded ? 0 : `${parentHeight - imageHeight}px`, // Use viewport height
+                y : isExpanded ? 0 : 325,
               }}
               transition={{
                 duration: 1,
@@ -223,7 +241,7 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
           {/* Content div slides in while image slides down */}
           <div ref={contentRef}>
             <motion.div
-              className="w-full bg-[#fe4a22] rounded-3xl p-6 flex flex-col justify-center text-[#161111]"
+              className="w-full bg-[#2f4230] rounded-3xl p-6 flex flex-col justify-center text-[#161111]"
               initial={{ x: "2000px", y: "-100%" }}
               animate={{ x: isExpanded ? "2000px" : 0, y: `${-imageHeight}px` }}
               transition={{
@@ -235,17 +253,17 @@ export default function Hero({ onAnimationComplete }: HeroProps) {
               <div className="flex flex-col gap-4 items-center text-center">
                 <div className="flex items-center justify-center gap-2">
                   <span className="text-xl font-semibold flex gap-2">
-                    <span className="flex items-center gap-1 justify-center">
-                      <span className="size-4 bg-black rounded-full" />
+                    <span className="flex items-center gap-2 justify-center font-kalam text-[#91c085]">
+                      <span className="size-4 mb-[0.30rem] bg-[#f0e7ce] rounded-full" />
                       COMPUSYS
                     </span>
-                    <span className="font-bold">में आपका स्वागत है।</span>
+                    <span className="font-bold font-kalam text-[#91c085]">में आपका स्वागत है।</span>
                   </span>
                 </div>
-                <h1 className="text-3xl font-bold leading-tight">
+                <h1 className="text-3xl font-bold leading-tight text-[#b2d99a] font-fontbo">
                   Experience the fusion of Technology and Culture
                 </h1>
-                <p className="text-base leading-tight">
+                <p className="text-base leading-tight text-[#f0e7ce] font-fontfo">
                   At Compusys, experience the perfect fusion of the latest technologies
                   and timeless cultural influences, driving new possibilities for
                   tomorrow.

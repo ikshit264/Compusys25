@@ -1,36 +1,70 @@
-.project{
+.project {
     display: flex;
-    width: 80%;
+    width: 83%;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8px;
-    border-top: 2px solid #b3b2b6;
+    border-top: 1.4px solid #2f4230;
     cursor: pointer;
     transition: all 0.2s;
 }
-.project:last-of-type{
-    border-bottom: 1px solid rgb(201, 201, 201);
+
+.project:last-of-type {
+    border-bottom: 1.4px solid #2f4230;
 }
 
-.project:hover{
-    opacity: 0.5;
-}
+/* Hover effects for the entire project */
+/* .project:hover {
+    opacity: 0.5; 
+} */
 
-.project:hover h2{
-    transform: translateX(-10px);
-}
-
-.project:hover p{
+.project:hover h2 {
     transform: translateX(10px);
 }
 
-.project h2{
+.project:hover p {
+    transform: translateX(10px);
+}
+
+.project h2 {
     margin: 0px;
     font-weight: 400;
     transition: all 0.4s;
 }
 
-.project p{
+.project p {
     transition: all 0.4s;
     font-weight: 300;
+}
+
+/* Tag styles */
+.tag {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    color: #2f4230;
+}
+
+.date {
+    transition: all 0.3s ease, transform 0.3s ease;
+}
+
+.project:hover .date {
+    transform: scale(1.05);
+}
+
+/* Tag hover effect when the project is hovered */
+.project:hover .tag {
+    background-color: #ffce70; /* Change to your desired hover color */
+    outline: none;
+    transform: scale(1.05); /* Slightly enlarge the tag on hover */
+}
+
+.arrow {
+    transition: all 0.1s ease, transform 0.3s ease;
+    background-color: #f5f0e1;
+}
+
+.project:hover .arrow {
+    border: 2px dashed #2f4230;
+    background-color: transparent;
+    transform: rotate(-45deg);
 }

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Accordian from "@/components/accordian/Accordian";
 import Hero from "@/components/home/Hero";
-import ShortIntro from "@/components/shortIntro/ShortIntro";
+// import ShortIntro from "@/components/shortIntro/ShortIntro";
 import Footer from "@/components/footer/Footer";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <Hero onAnimationComplete={() => setIsAnimationComplete(true)} />
       {isAnimationComplete && (
         <>
-          <ShortIntro />
+          {/* <ShortIntro /> */}
           <Accordian />
           <Footer />
         </>

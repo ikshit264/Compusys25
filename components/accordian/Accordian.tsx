@@ -9,29 +9,29 @@ const Accordian = () => {
       title: "Manzar 2024",
       src: "manzar24.jpg",
       color: "#000000",
-      tag: "Teri", // Unique color for the tag
+      tag: "departmental freshers", // Unique color for the tag
       date: "14-10-2024",
     },
     {
-      title: "Computer Science Premier League",
+      title: "CSPL",
       src: "officestudio.png",
       color: "#8C8C8C",
-      tag: "Teri",
+      tag: "one day cricket tournament",
       date: "18-10-2024",
     },
     {
       title: "Polaris 2024",
       src: "polaris24.jpg",
       color: "#EFE8D3",
-      tag: "Maa",
+      tag: "departmental cutltural and tech fest",
       date: "29-01-2024",
     },
     {
       title: "Orphanage Visit",
       src: "ovisit24.jpg",
       color: "#706D63",
-      tag: "Ki",
-      date: "1-2-2030",
+      tag: "annual social service",
+      date: "12-05-2024",
     },
   ];
 
