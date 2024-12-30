@@ -1,0 +1,63 @@
+.envelope {
+  position: relative;
+  cursor: pointer;
+}
+
+.back {
+  position: relative;
+  width: 380px;
+  height: 248px;
+  background: #2f4230;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+.front {
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  scale: 1.1;
+}
+
+.top {
+  position: absolute;
+  border-top: 185px solid #2f4230;
+  border-right: 191px solid transparent;
+  border-left: 191px solid transparent;
+  height: 0;
+  width: 0;
+  top: 2;
+  z-index: 5;
+  border-radius: 5;
+}
+
+.letter {
+  position: absolute;
+  background-color: aqua;
+  height: 200px;
+  width: 250px;
+  top: 18px;
+  border-radius: 4px;
+  left: 67;
+  background: transparent;
+}
+
+.text1 {
+  position: absolute;
+  color: white;
+  top: -50px;
+}
+
+.text {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: bold;
+  position: relative;
+  top: -20px;
+  left: 0px;
+}
+

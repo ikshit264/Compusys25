@@ -1,0 +1,129 @@
+/* From Uiverse.io by Smit-Prajapati */
+.container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 150vh;
+}
+
+.card {
+  width: 230px;
+  height: 300px;
+  padding: 5px;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  scale: 1.5;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.topSection {
+  height: 100%;
+  width: 90%;
+  top: 0;
+  position: absolute;
+  background: #4ade80;
+  overflow: hidden; /* Ensure the image does not overflow the container */
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.topSection img {
+  width: 100%; /* Ensure the image takes the width of the container */
+  height: 80%; /* Ensure the image takes the height of the container */
+  object-fit: cover; /* Ensures the image fills the container without distortion */
+  position: absolute;
+  border: 2px solid white;
+
+  /* bottom: 100px; */
+}
+
+.bottomSection {
+  height: 60%;
+  border-radius: 2px;
+  width: 100%;
+  /* border: 2px solid rgb(0, 143, 232); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -30;
+  z-index: -2;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bottomSection:hover {
+  box-shadow: 0 0 10 1px rgba(35, 222, 219, 0.587);
+}
+.rotator {
+  position: absolute;
+  height: 98%;
+  width: 98.5%;
+  background-color: #4ade80;
+  /* bottom: 2.5; */
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.rotator:hover {
+  box-shadow: 0 0 10 1px rgba(35, 222, 219, 0.587) inset;
+}
+
+.shadow {
+  position: absolute;
+  height: 200%;
+  width: 150%;
+  background: linear-gradient(
+    90deg,
+    rgb(12, 117, 56) 0%,
+    rgb(25, 180, 89) 35%,
+    rgb(255, 255, 255) 36%,
+    rgb(255, 255, 255) 60%,
+    rgb(255, 255, 255),
+    rgb(255, 255, 255) 72%,
+    rgb(255, 255, 255) 100%
+  );
+  animation: rotBGimg 4s linear infinite;
+  transition: all 0.2s linear;
+  /* z-index: 5; */
+  margin: auto;
+  /* border-radius: 50%; */
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.topSection .person_info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 3;
+  bottom: 0;
+  font-weight: 500;
+  font-size: 18px;
+}
