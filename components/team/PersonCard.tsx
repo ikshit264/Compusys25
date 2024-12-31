@@ -25,12 +25,12 @@ const PersonCard: React.FC<PersonCardProps> = ({
           h-[200px] w-[180px] scale-100 p-[5px]
           sm:h-[250px] sm:w-[200px] sm:scale-110
           md:h-[280px] md:w-[220px] md:scale-120
-          lg:h-[300px] lg:w-[230px] lg:scale-150"
+          lg:h-[300px] lg:w-[230px] lg:scale-150 group"
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.5, ease: [0.175, 0.885, 0.32, 1.275] }}
       >
         <div className="absolute top-0 flex h-full w-[90%] flex-col items-center gap-[10px] overflow-hidden rounded-lg border-none bg-green-400 shadow-lg">
-          <div className="relative h-[80%] w-full">
+          <div className="relative h-[80%] w-full transform transition-transform duration-500 ease-in-out group-hover:scale-110">
             <Image
               src={imageSrc}
               alt={`${name}'s profile`}
@@ -53,13 +53,14 @@ const PersonCard: React.FC<PersonCardProps> = ({
         {/* Gradient Background with Dynamic Animation */}
         <div className="absolute -bottom-[30px] z-[-2] flex h-[60%] w-full items-center justify-center overflow-hidden rounded-[2px] transition-transform duration-500">
           <div
-            className={`absolute h-[200%] w-[150%] m-auto animate-[spin_${3 + index%2}s_linear_infinite] bg-gradient-to-r 
-              from-[rgb(12,117,56)] 
-              via-[rgb(25,180,89)_35%,rgb(255,255,255)_${36 + index%2 + (index/3)%2}%,rgb(255,255,255)_60%,rgb(255,255,255)] 
-              to-[rgb(255,255,255)]`}
+            className={`absolute h-[200%] w-[150%] m-auto bg-gradient-to-r 
+            from-[rgb(12,117,56)] 
+            via-[rgb(25,180,89)_35%,rgb(255,255,255)_36%,rgb(255,255,255)_60%,rgb(255,255,255)] 
+            to-[rgb(255,255,255)]`}
+            style={{ animation: `spin ${index % 3 + 2}s linear infinite`, }} // Apply 2-second delay here
           />
           <div
-            className="absolute h-[98%] w-[98.5%] bg-green-400 transition-transform duration-500 
+            className="absolute h-[98%] w-[98.5%] backdrop-blur bg-[#fefaef] transition-transform duration-500 
             hover:shadow-[0_0_5px_1px_rgba(35,222,219,0.587)_inset]
             sm:hover:shadow-[0_0_8px_1px_rgba(35,222,219,0.587)_inset]
             md:hover:shadow-[0_0_10px_1px_rgba(35,222,219,0.587)_inset]"

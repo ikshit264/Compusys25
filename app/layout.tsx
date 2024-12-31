@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation"; // Hook to get the current path
+import { usePathname, useRouter } from "next/navigation";
 import { Geist, Geist_Mono, Kalam } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -65,6 +65,7 @@ export default function RootLayout({
 }>) {
   const [showContent, setShowContent] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   // Remove 'animationComplete' on component mount
   useEffect(() => {
@@ -83,7 +84,31 @@ export default function RootLayout({
     };
   }, []);
 
-  // Handle content visibility and first-visit logic
+  // Handle refresh and redirect with timer
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (pathname !== "/") {
+        sessionStorage.setItem("wasRefreshed", "true");
+      }
+      localStorage.removeItem("animationComplete");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    const wasRefreshed = sessionStorage.getItem("wasRefreshed");
+    if (wasRefreshed === "true" && pathname !== "/") {
+      sessionStorage.removeItem("wasRefreshed");
+      router.push("/");
+      setShowContent(false); // Reset content visibility
+      return; // Let the path-based useEffect handle the timer
+    }
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [pathname, router]);
+
+  // Handle content visibility, first-visit logic, and timing
   useEffect(() => {
     const hasVisited = localStorage.getItem("hasVisited");
 
@@ -94,12 +119,13 @@ export default function RootLayout({
     }
 
     if (pathname === "/") {
+      setShowContent(false); // Ensure content is hidden when on root path
       const timer = setTimeout(() => {
         setShowContent(true);
         localStorage.setItem("animationComplete", "true");
       }, 8000);
 
-      return () => clearTimeout(timer); // Cleanup timer on unmount
+      return () => clearTimeout(timer);
     } else {
       setShowContent(true); // Immediately show content for non-root paths
     }
