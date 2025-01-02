@@ -8,14 +8,12 @@ interface PersonCardProps {
   imageSrc?: string;
   name?: string;
   role?: string;
-  index?: number;
 }
 
 const PersonCard: React.FC<PersonCardProps> = ({
   imageSrc = "/assets/images/Manzar.jpg",
   name = "John Doe",
   role = "Software Engineer",
-  index = 1,
 }) => {
   return (
     <div className="flex items-center justify-center p-4">
@@ -53,11 +51,10 @@ const PersonCard: React.FC<PersonCardProps> = ({
         {/* Gradient Background with Dynamic Animation */}
         <div className="absolute -bottom-[30px] z-[-2] flex h-[60%] w-full items-center justify-center overflow-hidden rounded-[2px] transition-transform duration-500">
           <div
-            className={`absolute h-[200%] w-[150%] m-auto bg-gradient-to-r 
-            from-[rgb(12,117,56)] 
-            via-[rgb(25,180,89)_35%,rgb(255,255,255)_36%,rgb(255,255,255)_60%,rgb(255,255,255)] 
-            to-[rgb(255,255,255)]`}
-            style={{ animation: `spin ${index % 3 + 2}s linear infinite`, }} // Apply 2-second delay here
+            className={`absolute h-[200%] w-[150%] m-auto animate-[spin_3s_linear_infinite] bg-gradient-to-r 
+              from-[rgb(12,117,56)] 
+              via-[rgb(25,180,89)_35%,rgb(255,255,255)_3%,rgb(255,255,255)_60%,rgb(255,255,255)] 
+              to-[rgb(255,255,255)]`}
           />
           <div
             className="absolute h-[98%] w-[98.5%] backdrop-blur bg-[#fefaef] transition-transform duration-500 

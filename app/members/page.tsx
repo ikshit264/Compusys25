@@ -6,7 +6,7 @@ const page = () => {
     <div className="flex flex-wrap gap-4 items-center justify-center">
       {Array.from({ length: 10 }).map((_, index) => (
         <div key={index} className="">
-          <PersonCard index={index}/>
+          <PersonCard/>
         </div>
       ))}
     </div>
