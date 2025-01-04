@@ -1,0 +1,306 @@
+[
+    {
+      "id": 1,
+      "name": "LAVINYA BOPCHE",
+      "imageSrc": "/assets/teamImages/lav.png",
+      "role": "President",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 2,
+      "name": "JANHAVI AGRAWAL",
+      "imageSrc": "/assets/teamImages/jan.png",
+      "role": "Secretary",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 3,
+      "name": "PRANAV DARAK",
+      "imageSrc": "/assets/teamImages/pra.png",
+      "role": "Treasurer",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 4,
+      "name": "VEDANT BHUTADA",
+      "imageSrc": "/assets/teamImages/ved2.png",
+      "role": "Events Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 5,
+      "name": "AYUSH YADAV",
+      "imageSrc": "/assets/teamImages/ayu.png",
+      "role": "Publicity Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 6,
+      "name": "GIRIJA CHACHADA",
+      "imageSrc": "/assets/teamImages/gir.png",
+      "role": "Cultural Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 7,
+      "name": "GODWIN SHALOM",
+      "imageSrc": "/assets/teamImages/god.png",
+      "role": "Systems Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 8,
+      "name": "LAKSHYA BOGAL",
+      "imageSrc": "/assets/teamImages/lak.png",
+      "role": "Technical Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 9,
+      "name": "HARDIK THAKKAR",
+      "imageSrc": "/assets/teamImages/har.png",
+      "role": "Social Activity Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 10,
+      "name": "DEVESH BORKAR",
+      "imageSrc": "/assets/teamImages/dev3.png",
+      "role": "Social Activity Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 11,
+      "name": "SHREY NALODE",
+      "imageSrc": "/assets/teamImages/shr.png",
+      "role": "Photography Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 12,
+      "name": "AASTHA SINGH",
+      "imageSrc": "/assets/teamImages/aas.png",
+      "role": "Creatives Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 13,
+      "name": "ABHISHEK CHOUDHARY",
+      "imageSrc": "/assets/teamImages/abh.png",
+      "role": "Venues Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 14,
+      "name": "AJINKYA MOHITKAR",
+      "imageSrc": "/assets/teamImages/aji.png",
+      "role": "Sports Head",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 15,
+      "name": "ARYAN KHOKLE",
+      "imageSrc": "/assets/teamImages/ary.png",
+      "role": "Executive",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 16,
+      "name": "DEVANSHU NARNOLIYA",
+      "imageSrc": "/assets/teamImages/dev.png",
+      "role": "Vice President",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 17,
+      "name": "AKSHATA KATOLE",
+      "imageSrc": "/assets/teamImages/aks.png",
+      "role": "Joint Secretary",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 18,
+      "name": "DEVESH PARDHI",
+      "imageSrc": "/assets/teamImages/dev2.png",
+      "role": "Joint Treasurer",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 19,
+      "name": "GUNJAN RATHI",
+      "imageSrc": "/assets/teamImages/gun.png",
+      "role": "Events CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 20,
+      "name": "JATIN JASROTIA",
+      "imageSrc": "/assets/teamImages/jat.png",
+      "role": "Events CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 21,
+      "name": "SIYA BISEN",
+      "imageSrc": "/assets/teamImages/siy.png",
+      "role": "Publicity Cohead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 22,
+      "name": "MUDASSIR SIDDIQUI",
+      "imageSrc": "/assets/teamImages/mud.png",
+      "role": "Publicity Cohead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 23,
+      "name": "VEDIKA AGRAWAL",
+      "imageSrc": "/assets/teamImages/ved.png",
+      "role": "Cultural Cohead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 24,
+      "name": "SURAMYA VIMAL",
+      "imageSrc": "/assets/teamImages/sur.png",
+      "role": "Cultural Cohead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 25,
+      "name": "SAKET RATHI",
+      "imageSrc": "/assets/teamImages/sak.png",
+      "role": "Systems Cohead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 26,
+      "name": "ADITYA SHAMKA",
+      "imageSrc": "/assets/teamImages/adi.png",
+      "role": "Systems Cohead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 27,
+      "name": "IKSHIT TALERA",
+      "imageSrc": "/assets/teamImages/iks.png",
+      "role": "Technical Cohead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 28,
+      "name": "MAHI GUPTA",
+      "imageSrc": "/assets/teamImages/mah.png",
+      "role": "Social Activity CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 29,
+      "name": "VAISHVIK JAISWAL",
+      "imageSrc": "/assets/teamImages/vai.png",
+      "role": "Social Activity CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 30,
+      "name": "MADHAV GUPTA",
+      "imageSrc": "/assets/teamImages/mad2.png",
+      "role": "Photography CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 31,
+      "name": "NIKUNJ CHANDAK",
+      "imageSrc": "/assets/teamImages/nik.png",
+      "role": "Photography CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 32,
+      "name": "KHUSHI MANTRI",
+      "imageSrc": "/assets/teamImages/khu.png",
+      "role": "Creatives CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 33,
+      "name": "MOHIT PANDITA",
+      "imageSrc": "/assets/teamImages/moh.png",
+      "role": "Venues CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 34,
+      "name": "OM DESHMUKH",
+      "imageSrc": "/assets/teamImages/om.png",
+      "role": "Venues CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 35,
+      "name": "MADHUJ AGRAWAL",
+      "imageSrc": "/assets/teamImages/mad.png",
+      "role": "Sports CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 36,
+      "name": "SHIVAM LIKHAR",
+      "imageSrc": "/assets/teamImages/shi.png",
+      "role": "Sports CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 37,
+      "name": "KHUSHI PALDIWAL",
+      "imageSrc": "/assets/teamImages/khu2.png",
+      "role": "PublicRelations CoHead",
+      "height": 200,
+      "width": 200
+    },
+    {
+      "id": 38,
+      "name": "EMAAN JAVED",
+      "imageSrc": "/assets/teamImages/ema.png",
+      "role": "Executive",
+      "height": 200,
+      "width": 200
+    }
+]

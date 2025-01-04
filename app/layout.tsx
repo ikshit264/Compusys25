@@ -133,7 +133,7 @@ export default function RootLayout({
   }, [pathname]);
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${combinedFontClassName} antialiased`}>
         <ReduxProvider>
           {showContent && <Navbar />}
