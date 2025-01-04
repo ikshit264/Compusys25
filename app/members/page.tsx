@@ -79,7 +79,7 @@ const Members = () => {
   <span className="ml-[.6em] block text-9xl max-md:text-8xl max-sm:text-7xl font-extrabold uppercase mt-4 text-teal-600">
   <LetterAnimation
                            text='TEAMS'
-                           delay={2.5}
+                           delay={2.4}
                            duration={0.3}
                            effect="slideRight"
                            staggerChildren={0.2}
