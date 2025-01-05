@@ -86,3 +86,8 @@ body {
   }
 }
 
+@layer utilities {
+  .red-outline {
+    @apply outline outline-1 outline-red-500
+  }
+}

@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const AnimatedText = (): JSX.Element => {
-  const componentRef = useRef(null);
-
+const AnimatedText = () => {
   const techNames = [
     { name: "Team", color: "#2f4230" },
     { name: "COMPUSYS", color: "#ffce70" },
@@ -13,54 +11,43 @@ const AnimatedText = (): JSX.Element => {
 
   const { scrollYProgress } = useScroll();
 
-  // Apply scroll animation with a scrub-like effect by controlling transition
-  const xTransforms = techNames.map((_, index) =>
-    useTransform(
-      scrollYProgress,
-      [0, 1],
-      [
-        index % 2 === 0 ? 1500 : -1500,
-        index % 2 === 0 ? -100 : 100,
-      ]
-    )
-  );
+  // Precompute transforms directly in the body
+  const xTransforms = [
+    useTransform(scrollYProgress, [0, 1], [1500, 0]),
+    useTransform(scrollYProgress, [0, 1], [-1500, 0]),
+  ];
 
-  const opacityTransforms = techNames.map(() =>
-    useTransform(scrollYProgress, [0, 1], [0, 1])
-  );
+  const opacityTransforms = [
+    useTransform(scrollYProgress, [0, 1], [0, 1]),
+    useTransform(scrollYProgress, [0, 1], [0, 1]),
+  ];
 
   return (
-    <section className="m-10" ref={componentRef}>
-      {techNames.map((tech, index) => {
-        const x = xTransforms[index];
-        const opacity = opacityTransforms[index];
-
-        return (
-          <motion.div
-            key={index}
-            className={`mb-8 flex items-center justify-center gap-4 text-slate-700`}
-            aria-label={tech.name}
-            style={{
-              x: x,
-              opacity: opacity,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 25,
-              // Scrub-like behavior to ensure smooth transitions based on scroll
-              ease: "easeInOut",
-            }}
+    <section className="m-10">
+      {techNames.map((tech, index) => (
+        <motion.div
+          key={index}
+          className="mb-8 flex items-center justify-center gap-4 text-slate-700"
+          aria-label={`Animated text for ${tech.name}`}
+          style={{
+            x: xTransforms[index],
+            opacity: opacityTransforms[index],
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 80,
+            damping: 20,
+            ease: "easeInOut",
+          }}
+        >
+          <span
+            style={{ color: tech.color }}
+            className="text-8xl max-sm:text-7xl font-extrabold uppercase tracking-tighter"
           >
-            <span
-              style={{ color: tech.color }}
-              className="text-8xl  max-sm:text-7xl font-extrabold uppercase tracking-tighter"
-            >
-              {tech.name}
-            </span>
-          </motion.div>
-        );
-      })}
+            {tech.name}
+          </span>
+        </motion.div>
+      ))}
     </section>
   );
 };

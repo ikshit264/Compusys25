@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-// import { BorderBeam } from "../ui/border-beam";
+import { useIsPhone } from "@/hooks/IsPhone";
 
 interface PersonCardProps {
   imageSrc: string;
@@ -14,6 +14,9 @@ interface PersonCardProps {
 const PersonCard: React.FC<PersonCardProps> = ({
 imageSrc , name , role
 }: PersonCardProps) => {
+  
+  const isMobileView = useIsPhone();
+
   return (
     <div className="flex items-center justify-center p-4 ">
       <motion.div
@@ -27,13 +30,14 @@ imageSrc , name , role
         transition={{ duration: 0.5, ease: [0.175, 0.885, 0.32, 1.275] }}
       >
         <div className="absolute top-0 flex h-full w-[90%] flex-col items-center gap-[10px] overflow-hidden  border-none bg-[#b2d99a] shadow-lg  hover:shadow-gray-400">
-          <div className="relative h-[80%] w-full transform transition-transform duration-500 ease-in-out group-hover:scale-110 ">
+          <div className={`relative ${isMobileView ?  'h-full' : 'h-[80%]'} w-full transform transition-transform duration-500 ease-in-out group-hover:scale-105`}>
             <Image
               src={imageSrc}
               alt={`${name}'s profile`}
               fill
-              className="mt-[17.6] absolute object-cover"
-              sizes="(max-width: 640px) 180px, (max-width: 768px) 200px, (max-width: 1024px) 220px, 230px "
+              className=" absolute object-cover"
+              // sizes={}
+              // sizes="(max-width: 640px) 10px, (max-width: 768px) 200px, (max-width: 1024px) 220px, 230px "
               priority
             />
           </div>
@@ -57,16 +61,6 @@ imageSrc , name , role
               via-[rgb(25,180,89)_35%,rgb(255,255,255)_3%,rgb(255,255,255)_60%,rgb(255,255,255)] 
               to-[rgb(255,255,255)]`}
           />
-         
-
-          {/* <BorderBeam
-          size={250}
-          duration={6}
-          borderWidth={2}
-          colorFrom="#0cabba"
-          colorTo="#f5625d"
-          className="z-[10]"/> */}
-
 
           <div
             className="absolute h-[98%] w-[98.5%] backdrop-blur bg-[#ffffff] transition-transform duration-500 

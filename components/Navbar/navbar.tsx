@@ -9,27 +9,16 @@ import { motion, AnimatePresence } from "framer-motion"
 export default function Navbar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = React.useState(false)
-  const [isScrolled, setIsScrolled] = React.useState(false)
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Members", href: "/members" },
-    { name: "Sponsors", href: "/sponsors" },
+    { name: "Polaris", href: "/polaris" },
   ]
 
   return (
     <motion.header
-      className={`sticky top-0 z-50 w-full border-b backdrop-blur transition-all duration-300 ${isScrolled ? 'bg-[#f5f0e1]/50' : 'bg-transparent border-transparent'
-        }`}
+      className={`top-0 z-50 w-full border-b backdrop-blur transition-all duration-300 bg-transparent border-transparent`}
       initial={{ opacity: 0 }}
       animate={{ opacity : 1 }}
       transition={{
@@ -69,7 +58,7 @@ export default function Navbar() {
                       animate={{ scale: 1 }}
                       transition={{
                         type: "spring",
-                        stiffness: 380,
+                        stiffness: 30,
                         damping: 30
                       }}
                     />

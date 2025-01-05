@@ -76,6 +76,7 @@ export default function RootLayout({
   // Clear 'animationComplete' on tab close or unload
   useEffect(() => {
     const handleBeforeUnload = () => {
+      localStorage.setItem("hasVisited", "true");
       localStorage.removeItem("animationComplete");
     };
 
@@ -87,10 +88,11 @@ export default function RootLayout({
 
   // Handle refresh and redirect with timer
   useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+    const handleBeforeUnload = () => {
       if (pathname !== "/") {
         sessionStorage.setItem("wasRefreshed", "true");
       }
+      localStorage.setItem("hasVisited", "true");
       localStorage.removeItem("animationComplete");
     };
 
@@ -113,20 +115,17 @@ export default function RootLayout({
   useEffect(() => {
     const hasVisited = localStorage.getItem("hasVisited");
 
-    if (!hasVisited) {
-      localStorage.setItem("hasVisited", "false"); // First visit
-    } else {
-      localStorage.setItem("hasVisited", "true"); // Subsequent visits
-    }
+    if (hasVisited === "true") {
+      if (pathname === "/") {
+        setShowContent(false); // Ensure content is hidden when on root path
+        const timer = setTimeout(() => {
+          setShowContent(true);
+          localStorage.setItem("animationComplete", "true");
+          localStorage.setItem("hasVisited", "false");
+        }, 8000);
 
-    if (pathname === "/") {
-      setShowContent(false); // Ensure content is hidden when on root path
-      const timer = setTimeout(() => {
-        setShowContent(true);
-        localStorage.setItem("animationComplete", "true");
-      }, 8000);
-
-      return () => clearTimeout(timer);
+        return () => clearTimeout(timer);
+      }
     } else {
       setShowContent(true); // Immediately show content for non-root paths
     }
