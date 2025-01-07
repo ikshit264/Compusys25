@@ -20,7 +20,7 @@ export default function Navbar() {
     <motion.header
       className={`top-0 z-50 w-full border-b backdrop-blur transition-all duration-300 bg-transparent border-transparent`}
       initial={{ opacity: 0 }}
-      animate={{ opacity : 1 }}
+      animate={{ opacity: 1 }}
       transition={{
         type: "spring",
         stiffness: 260,
@@ -49,20 +49,6 @@ export default function Navbar() {
                     : "bg-gray-500 border-gray-400"
                     }`}
                 >
-                  {/* Black circle for the active page */}
-                  {pathname === item.href && (
-                    <motion.div
-                      className="left-[-8px] w-2 h-2 bg-black rounded-full"
-                      layoutId="activeCircle"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 30,
-                        damping: 30
-                      }}
-                    />
-                  )}
                   <span className="text-sm">{item.name}</span>
                 </Link>
 
