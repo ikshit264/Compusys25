@@ -35,7 +35,7 @@ imageSrc , name , role
               src={imageSrc}
               alt={`${name}'s profile`}
               fill
-              className=" absolute object-cover"
+              className=" absolute object-cover mt-2 mx-auto"
               // sizes={}
               // sizes="(max-width: 640px) 10px, (max-width: 768px) 200px, (max-width: 1024px) 220px, 230px "
               priority
