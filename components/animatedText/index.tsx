@@ -13,8 +13,8 @@ const AnimatedText = () => {
 
   // Precompute transforms directly in the body
   const xTransforms = [
-    useTransform(scrollYProgress, [0, 1], [1500, 0]),
-    useTransform(scrollYProgress, [0, 1], [-1500, 0]),
+    useTransform(scrollYProgress, [0, 1], [1500, -100]),
+    useTransform(scrollYProgress, [0, 1], [-1500, 100]),
   ];
 
   const opacityTransforms = [

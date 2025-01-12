@@ -21,24 +21,26 @@ export default function Page() {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center'>
-      <div>
+    <div className='flex flex-col items-center justify-center px-4 md:px-8 lg:px-16'>
+      <div className="w-full max-w-4xl mb-8 md:mb-16">
         <Image
           src={Polaris}
-          className='py-4'
+          className='w-full h-auto max-h-[85vh] object-contain'
           alt='Polaris'
-          width={500}
+          width={700}
+          height={700}
         />
       </div>
-      <div className='flex flex-col gap-4'>
-      <Timeline data={timelineData} />
-        <div>
+      <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold text-center pt-3'>TIMELINE</h1>
+      <div className='flex flex-col gap-8 md:gap-16 w-full'>
+        <Timeline data={timelineData} />
+        <div className='space-y-16'>
           <div className='flex flex-col gap-4 items-center'>
-            <h1 className='text-6xl font-semibold'>CHAPTERS EVENTS</h1>
+            <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold text-center'>CHAPTERS EVENTS</h1>
             <ChaptersCard testimonials={Chapters} />
           </div>
           <div className='flex flex-col gap-4 items-center'>
-            <h1 className='text-6xl font-semibold'>SPONSORS</h1>
+            <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold text-center'>SPONSORS</h1>
             <Sponsores />
           </div>
         </div>
@@ -47,4 +49,3 @@ export default function Page() {
   )
 }
 
-// export default page
