@@ -43,6 +43,7 @@
   border-radius: 4px;
   left: 67;
   background: transparent;
+  transform-style: preserve-3d;
 }
 
 .text1 {
@@ -61,3 +62,15 @@
   left: 0px;
 }
 
+.card_front {
+ z-index: 2;
+ transform: rotateY(180deg);
+
+}
+.card_back {
+  z-index: 3;
+  /* transform: rotateY(180deg); */
+ 
+  backface-visibility: hidden;
+
+}

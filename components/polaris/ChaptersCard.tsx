@@ -44,6 +44,10 @@ export const ChaptersCard = ({
     return Math.floor(Math.random() * 12);
   };
 
+  const CustomImage = ({ src, alt }: { src: string; alt: string }) => (
+    <Image src={src} alt={alt} width={400} height={10} className='rounded-md shadow-lg shadow-black' />
+  );
+
   return (
     <div className="w-full max-w-7xl mx-auto  sm:px-6 lg:px-8 py-12 antialiased font-sans">
       <div className="flex flex-col sm:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
@@ -82,14 +86,15 @@ export const ChaptersCard = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <Image
+                  <CustomImage src={testimonial.src} alt={testimonial.name} />
+                  {/* <Image
                     src={testimonial.src}
                     alt={testimonial.name}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     draggable={false}
                     className="rounded-2xl object-cover"
-                  />
+                  /> */}
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -117,16 +122,16 @@ export const ChaptersCard = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold dark:text-white text-black">
+            <h3 className="text-4xl font-bold dark:text-white text-black">
               {testimonials[active].name}
             </h3>
             <a
               href={testimonials[active].link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-blue-500 hover:underline"
+              className="text-md text-blue-500 hover:underline"
             >
-              Visit Chapter
+              Register Now
             </a>
             <motion.div className="text-lg text-gray-500 mt-4 sm:mt-6 dark:text-neutral-300">
               {testimonials[active].message}
