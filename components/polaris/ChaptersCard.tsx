@@ -1,17 +1,17 @@
 "use client";
 
-import { FaArrowLeft } from "react-icons/fa6";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 type Testimonial = {
-  quote: string;
+  message: React.ReactNode;
   name: string;
-  designation: string;
+  link: string;
   src: string;
 };
+
 export const ChaptersCard = ({
   testimonials,
   autoplay = false,
@@ -41,13 +41,15 @@ export const ChaptersCard = ({
   }, [autoplay, handleNext]);
 
   const randomRotateY = () => {
-    return Math.floor(Math.random() * 21);
+    return Math.floor(Math.random() * 12);
   };
+
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
-      <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
-        <div>
-          <div className="relative h-80 w-full">
+    <div className="w-full max-w-7xl mx-auto  sm:px-6 lg:px-8 py-12 antialiased font-sans">
+      <div className="flex flex-col sm:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
+        {/* Image Section */}
+        <div className="w-full lg:w-1/2">
+          <div className="relative aspect-square w-[90%] md:w-[80%] flex items-center justify-center">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -83,17 +85,19 @@ export const ChaptersCard = ({
                   <Image
                     src={testimonial.src}
                     alt={testimonial.name}
-                    width={500}
-                    height={500}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     draggable={false}
-                    className="h-full w-full rounded-2xl object-fit"
+                    className="rounded-2xl object-cover"
                   />
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex justify-between flex-col py-4">
+
+        {/* Text Section */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-between">
           <motion.div
             key={active}
             initial={{
@@ -116,45 +120,30 @@ export const ChaptersCard = ({
             <h3 className="text-2xl font-bold dark:text-white text-black">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
-              {testimonials[active].designation}
-            </p>
-            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
-              {testimonials[active].quote.split(" ").map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
-                  animate={{
-                    filter: "blur(0px)",
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                    delay: 0.02 * index,
-                  }}
-                  className="inline-block"
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
-            </motion.p>
+            <a
+              href={testimonials[active].link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-blue-500 hover:underline"
+            >
+              Visit Chapter
+            </a>
+            <motion.div className="text-lg text-gray-500 mt-4 sm:mt-6 dark:text-neutral-300">
+              {testimonials[active].message}
+            </motion.div>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+
+          {/* Navigation Buttons */}
+          <div className="flex gap-4 mt-6 sm:mt-8">
             <button
               onClick={handlePrev}
-              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+              className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
               <FaArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
               onClick={handleNext}
-              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+              className="h-10 w-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
               <FaArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
@@ -164,3 +153,4 @@ export const ChaptersCard = ({
     </div>
   );
 };
+
