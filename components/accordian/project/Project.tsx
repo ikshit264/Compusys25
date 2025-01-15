@@ -49,20 +49,7 @@ export default function Project({ index, title, tag, date, setModal }: ProjectPr
           <div className={`${styles.date} text-base text-[#2f4230] font-fontbo`}>{formatDate(date)}</div>
         </div>
       </div>
-
-      {/* Arrow Icon */}
-      {/* {!isMobileView && <div className={`${styles.arrow} p-2 rounded-full flex justify-center`}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="#2f4230"
-          className="size-6"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-        </svg>
-      </div>} */}
+   
       <div className={`${styles.arrow} p-2 rounded-full flex justify-center`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

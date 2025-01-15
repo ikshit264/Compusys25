@@ -14,7 +14,7 @@ const Accordian = () => {
     },
     {
       title: "CSPL",
-      src: "officestudio.png",
+      src: "CSPL.jpg",
       color: "#8C8C8C",
       tag: "one day cricket tournament",
       date: "18-10-2024",

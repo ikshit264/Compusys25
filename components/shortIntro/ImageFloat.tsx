@@ -4,14 +4,11 @@ import { motion } from "framer-motion";
 import { useIsPhone } from "@/hooks/IsPhone";
 
 interface ImageFloatProps {
-  image1Start: { top: string; left: string, duration: number };
-  image2Start: { bottom: string; right: string, duration: number };
+  image1Start: { top: string; left: string; duration: number; src: string };
+  image2Start: { bottom: string; right: string; duration: number; src: string };
 }
 
-const ImageFloat: React.FC<ImageFloatProps> = ({
-  image1Start,
-  image2Start,
-}) => {
+const ImageFloat: React.FC<ImageFloatProps> = ({ image1Start, image2Start }) => {
   const [hoveredImage, setHoveredImage] = useState<{
     src: string;
     x: number;
@@ -23,6 +20,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
       setHoveredImage({ ...hoveredImage, x: e.clientX, y: e.clientY });
     }
   };
+
   const isMobileView = useIsPhone();
 
   const floatVariants = {
@@ -32,7 +30,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
       transition: {
         y: {
           repeat: Infinity,
-          duration: image2Start.duration - 3,
+          duration: image1Start.duration,
           ease: "easeInOut",
         },
         x: {
@@ -48,20 +46,22 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
       transition: {
         y: {
           repeat: Infinity,
-          duration: image1Start.duration,
+          duration: image2Start.duration,
           ease: "easeInOut",
         },
         x: {
           repeat: Infinity,
-          duration: image2Start.duration,
+          duration: image1Start.duration,
           ease: "easeInOut",
         },
       },
     },
   };
 
+  const getFullPath = (src: string) => `/assets/images/${src}`;
+
   return (
-    <div className="relative w-56 h-56 " onMouseMove={handleMouseMove}>
+    <div className="relative w-56 h-56" onMouseMove={handleMouseMove}>
       <motion.div
         className="absolute overflow-hidden"
         style={{ top: image1Start.top, left: image1Start.left }}
@@ -69,22 +69,23 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
         animate="float1"
         onHoverStart={(e) =>
           setHoveredImage({
-            src: "/assets/images/manzar.jpg",
+            src: getFullPath(image1Start.src),
             x: e.clientX,
             y: e.clientY,
           })
         }
         onHoverEnd={() => setHoveredImage(null)}
       >
-        <div className="w-20 h-20 relative overflow-x-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
+        <div className="w-20 h-20 relative overflow-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
           <Image
-            src="/assets/images/manzar.jpg"
+            src={getFullPath(image1Start.src)}
             alt="Floating image 1"
             fill
-            className="rounded-full object-cover "
+            className="rounded-full object-cover"
           />
         </div>
       </motion.div>
+
       <motion.div
         className="absolute overflow-hidden"
         style={{ bottom: image2Start.bottom, right: image2Start.right }}
@@ -92,37 +93,35 @@ const ImageFloat: React.FC<ImageFloatProps> = ({
         animate="float2"
         onHoverStart={(e) =>
           setHoveredImage({
-            src: "/assets/images/manzar.jpg",
+            src: getFullPath(image2Start.src),
             x: e.clientX,
             y: e.clientY,
           })
         }
         onHoverEnd={() => setHoveredImage(null)}
       >
-        <div className="w-20 h-20 relative overflow-x-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
+        <div className="w-20 h-20 relative overflow-hidden rounded-full shadow-red-300/40 border border-red-400 shadow-lg">
           <Image
-            src="/assets/images/manzar.jpg"
+            src={getFullPath(image2Start.src)}
             alt="Floating image 2"
             fill
-            className="rounded-full object-cover "
+            className="rounded-full object-cover"
           />
         </div>
       </motion.div>
+
       {hoveredImage && (
         <motion.div
-          initial={{ y: 20, scale: 0.3, opacity: 0 }} // Initial state: small, below cursor, transparent
-          animate={{ y: 0, scale: 1, opacity: 1 }} // Final state: original size, at cursor, fully visible
-          exit={{ y: 50, scale: 0.8, opacity: 0 }} // Exit animation for smooth disappearance
-          transition={{
-            duration: 0.3, // Duration of the animation
-            ease: "easeOut", // Easing function for smooth effect
-          }}
+          initial={{ y: 20, scale: 0.3, opacity: 0 }}
+          animate={{ y: 0, scale: 1, opacity: 1 }}
+          exit={{ y: 50, scale: 0.8, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           style={{
             position: "fixed",
-            top: hoveredImage.y - 150, // Adjust to show above the cursor
-            left: hoveredImage.x - 100, // Center horizontally
+            top: hoveredImage.y - 150,
+            left: hoveredImage.x - 100,
             zIndex: 1000,
-            pointerEvents: "none", // Prevent mouse events on this element
+            pointerEvents: "none",
           }}
           className={`${isMobileView ? "w-48 h-48" : "w-72 h-72"}`}
         >

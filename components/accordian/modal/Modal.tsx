@@ -106,14 +106,14 @@ const Modal: React.FC<ModalProps> = ({ modal, projects }) => {
           )}
         </div>
       </motion.div>
-      <motion.div
+      {/* <motion.div
         ref={cursor}
         className={styles.cursor}
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-      ></motion.div>
-      <motion.div
+      ></motion.div> */}
+      {/* <motion.div
         ref={cursorLabel}
         className={`${styles.cursorLabel} font-kalam`}
         variants={scaleAnimation}
@@ -121,7 +121,7 @@ const Modal: React.FC<ModalProps> = ({ modal, projects }) => {
         animate={active ? "enter" : "closed"}
       >
         meow
-      </motion.div>
+      </motion.div> */}
     </>
   );
 };

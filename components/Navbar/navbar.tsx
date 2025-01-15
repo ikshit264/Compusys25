@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-xl text-black font-bold">
-              <Image src={Logo} width={20} height={20} alt="CSE Logo" className="size-12" />
+              <Image src={Logo} width={30} height={20} alt="CSE Logo" className="size-12 md:size-16 md:translate-y-1" />
             </Link>
           </div>
 
