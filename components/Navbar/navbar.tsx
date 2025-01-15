@@ -1,4 +1,3 @@
-// Navbar.js
 "use client"
 
 import * as React from "react"
@@ -21,15 +20,14 @@ export default function Navbar() {
   return (
     <motion.header
       className={`top-0 z-50 w-full border-b backdrop-blur transition-all duration-300 bg-transparent border-transparent`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         type: "spring",
         stiffness: 260,
         damping: 20,
       }}
     >
-      {/* Rest of the Navbar component remains the same */}
       <nav className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -53,7 +51,6 @@ export default function Navbar() {
                 >
                   <span className="text-sm">{item.name}</span>
                 </Link>
-
               ))}
             </div>
           </div>

@@ -10,6 +10,7 @@ import MemberHero from '@/components/team/MemberHero';
 
 const Members = () => {
   const [loading, setLoading] = useState(true);
+  const [client, setclient] = useState(false);
 
   const First = Member.slice(0, 2);
   const Leads = Member.slice(2, 15);
@@ -20,6 +21,7 @@ const Members = () => {
     const loadingTimeout = setTimeout(() => {
       setLoading(false);
     }, 2500);
+    setclient(true)
 
     return () => clearTimeout(loadingTimeout);
   }, []);
@@ -40,11 +42,15 @@ const Members = () => {
     ));
   };
 
+  if(!client){
+    return null;
+  }
+
   return (
     <div className=' flex flex-col items-center justify-center gap-28 md:gap-20 sm:gap-10 overflow-hidden' >
 
 
-      <MemberHero />  
+      <MemberHero />
 
       <h1 className='mt-9 font-bold text-5xl text-center text-lime-500'>
         Our <span className=' text-teal-600'>Leads</span>

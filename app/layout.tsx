@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -122,7 +121,7 @@ export default function RootLayout({
           setShowContent(true);
           localStorage.setItem("animationComplete", "true");
           localStorage.setItem("hasVisited", "false");
-        }, 3000);
+        }, 6000);
 
         return () => clearTimeout(timer);
       }

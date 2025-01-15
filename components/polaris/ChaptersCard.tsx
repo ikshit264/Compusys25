@@ -50,9 +50,9 @@ export const ChaptersCard = ({
 
   return (
     <div className="w-full max-w-7xl mx-auto  sm:px-6 lg:px-8 py-12 antialiased font-sans">
-      <div className="flex flex-col sm:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-8 lg:gap-12">
         {/* Image Section */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 flex justify-center">
           <div className="relative aspect-square w-[90%] md:w-[80%] flex items-center justify-center">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
@@ -84,26 +84,18 @@ export const ChaptersCard = ({
                     duration: 0.4,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-0 origin-bottom"
+                  className="absolute inset-0 origin-bottom "
                 >
                   <CustomImage src={testimonial.src} alt={testimonial.name} />
-                  {/* <Image
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    draggable={false}
-                    className="rounded-2xl object-cover"
-                  /> */}
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
         </div>
 
-        {/* Text Section */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-between">
+        <div className="w-full lg:w-1/2 flex flex-col justify-between items-center">
           <motion.div
+          className="flex flex-col max-md:items-center"
             key={active}
             initial={{
               y: 20,

@@ -27,17 +27,17 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
       if (onAnimationComplete) {
         onAnimationComplete(); // Notify parent when animation is complete
       }
-    }, 3000);
+    }, isMobileView ? 5000 : 6000);
     const progressInterval = setInterval(() => {
       setProgress((prev) => (prev < 100 ? prev + 1 : 100));
-    }, 75);
+    }, 50);
 
 
     return () => {
       clearInterval(progressInterval);
       clearTimeout(timer);
     };
-  }, [onAnimationComplete]);
+  }, [onAnimationComplete, isMobileView]);
 
 
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
                     className="font-bold text-[#91c085] font-kalam"
                     initial={showAnimations ? { opacity: 0, x: 0 } : { opacity: 1, x: 0 }}
                     animate={showAnimations ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
-                    transition={showAnimations ? { duration: 1, delay: 2 } : { duration: 0 }}
+                    transition={showAnimations ? { duration: 1, delay: 6 } : { duration: 0 }}
                   >
                     में आपका स्वागत है।
                   </motion.span>
@@ -144,7 +144,7 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
                 {showAnimations ? (
                   <LetterAnimation
                     delay={4}
-                    duration={0.8}
+                    duration={0.7}
                     effect="slideUp"
                     staggerChildren={0.02}
                     initial={{ opacity: 0, y: 10 }}
@@ -207,9 +207,14 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
           className={`min-h-screen relative flex flex-col items-center`}
         >
           {/* Image animation */}
-          <div >
+          <motion.div
+            initial={showAnimations ? { height: "100vh" } : { height: "auto" }}
+            animate={showAnimations ? { height: isExpanded ? "100vh" : "50vh" } : { height: "auto" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="w-full"
+          >
             <motion.div
-              className="w-full rounded-3xl overflow-hidden"
+              className="w-full h-full rounded-3xl overflow-hidden"
               transition={showAnimations ? {
                 duration: 1,
                 ease: "easeInOut",
@@ -231,43 +236,37 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
                 ]}
               />
             </motion.div>
-          </div>
+          </motion.div>
 
-          {/* Content div slides in while image slides down */}
-          {!isExpanded && <div >
-            <motion.div
-              className="w-full bg-[#2f4230] rounded-3xl p-6 mt-3 flex flex-col justify-center text-[#161111]"
-              initial={showAnimations ? { x: 1000 } : { x: 0 }}
-              animate={showAnimations ? { x: isExpanded ? 1000 : 0 } : { x: 0 }}
-              transition={showAnimations ? {
-                duration: 1,
-                ease: "easeInOut",
-                // delay: 0,
-              } : { duration: 0 }}
-            >
-              <div className="flex flex-col gap-4 items-center text-center">
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-xl font-semibold flex gap-2">
-                    <span className="flex items-center gap-2 justify-center font-kalam text-[#91c085]">
-                      <span className="size-4 mb-[0.30rem] bg-[#f0e7ce] rounded-full" />
-                      COMPUSYS
+          {/* Content div slides in while image slides up */}
+          <motion.div
+            className={`w-full bg-[#2f4230] rounded-3xl p-6 mt-3 flex flex-col justify-center text-[#161111] ${showAnimations ? 'hidden' :''}`}
+            initial={{ y: "100%", opacity: 0}}
+            animate={{ y: 0, opacity: 1}}
+            transition={{duration: 1}}
+                >
+                <div className="flex flex-col gap-4 items-center text-center">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-xl font-semibold flex gap-2">
+                      <span className="flex items-center gap-2 justify-center font-kalam text-[#91c085]">
+                        <span className="size-4 mb-[0.30rem] bg-[#f0e7ce] rounded-full" />
+                        COMPUSYS
+                      </span>
+                      <span className="font-bold font-kalam text-[#91c085]">में आपका स्वागत है।</span>
                     </span>
-                    <span className="font-bold font-kalam text-[#91c085]">में आपका स्वागत है।</span>
-                  </span>
+                  </div>
+                  <h1 className="text-3xl font-bold leading-tight text-[#b2d99a] font-fontbo">
+                    Experience the fusion of Technology and Culture
+                  </h1>
+                  <p className="text-base leading-tight text-[#f0e7ce] font-fontfo">
+                    At Compusys, experience the perfect fusion of the latest technologies
+                    and timeless cultural influences, driving new possibilities for
+                    tomorrow.
+                  </p>
                 </div>
-                <h1 className="text-3xl font-bold leading-tight text-[#b2d99a] font-fontbo">
-                  Experience the fusion of Technology and Culture
-                </h1>
-                <p className="text-base leading-tight text-[#f0e7ce] font-fontfo">
-                  At Compusys, experience the perfect fusion of the latest technologies
-                  and timeless cultural influences, driving new possibilities for
-                  tomorrow.
-                </p>
-              </div>
-            </motion.div>
-          </div>}
-        </motion.div>
-      </div>
+          </motion.div>
+      </motion.div>
+      </div >
     )
   );
 }

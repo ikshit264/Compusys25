@@ -17,7 +17,7 @@
       animate: {
         opacity: 1,
         transition: {
-          delayChildren: 0.3,
+          delayChildren: 0.25,
           staggerChildren: 0.5,
         },
       },

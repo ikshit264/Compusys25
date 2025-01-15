@@ -22,7 +22,7 @@ imageSrc , name , role
       <motion.div
         initial={{ scale: 1 }}
         className="z-10 relative flex flex-col items-center justify-center m-auto
-          h-[200px] w-[180px] scale-100 p-[5px]
+          h-[300px] w-[230px] scale-100 p-[5px]
           sm:h-[330px] sm:w-[250px] sm:scale-110
           md:h-[370px] md:w-[270px] md:scale-120
           lg:h-[370px] lg:w-[270px] lg:scale-150 group"
@@ -52,7 +52,7 @@ imageSrc , name , role
         </div>
 
         {/* Gradient Background with Dynamic Animation */}
-        <div className="absolute -bottom-[30px] z-[-1] flex h-[60%] w-full items-center justify-center overflow-hidden rounded-[2px] transition-transform duration-500">
+        <div className="absolute -bottom-[30px] z-[-1] flex h-[50%] w-full items-center justify-center overflow-hidden rounded-[2px] transition-transform duration-500">
 
 
           <div
@@ -63,7 +63,7 @@ imageSrc , name , role
           />
 
           <div
-            className="absolute h-[98%] w-[98.5%] backdrop-blur bg-[#ffffff] transition-transform duration-500 
+            className="absolute h-[98%] w-[98%] backdrop-blur  bg-[#fefdeb] transition-transform duration-500 
             hover:shadow-[0_0_5px_1px_rgba(35,222,219,0.587)]
             sm:hover:shadow-[0_0_8px_1px_rgba(35,222,219,0.587)]
             md:hover:shadow-[0_0_10px_1px_rgba(35,222,219,0.587)]"

@@ -17,25 +17,10 @@ const CustomImage = ({ src, alt }: { src: string; alt: string }) => (
 
 export const timelineData: TimelineEntry[] = [
   {
-    title: "Inauguration",
-    content: (
-      <div className="flex flex-col items-center gap-10">
-        <EventDate date="January 15, 2025" />
-        <p className="text-neutral-600 dark:text-neutral-400 text-center text-base md:text-lg">
-          <strong>Polaris</strong> is Central India’s biggest event, celebrating innovation, creativity, and inspiration. It brings together bright minds, bold ideas, and cutting-edge technologies under one roof. Join us as we kickstart this grand event with an inspiring opening ceremony.
-        </p>
-        <div className="flex flex-wrap items-center justify-around gap-4">
-          <CustomImage src="/assets/polaris/Inogration.JPG" alt="Polaris" />
-          <CustomImage src="/assets/polaris/Inogration1.JPG" alt="Polaris" />
-        </div>
-      </div>
-    ),
-  },
-  {
     title: "Chapters Event",
     content: (
       <div className="flex flex-col items-center gap-10">
-        <EventDate date="January 16, 2025" />
+        <EventDate date="January 16-17, 2025" />
         <p className="text-neutral-600 dark:text-neutral-400 text-center text-base md:text-lg">
           🎉 <strong>Polaris Coding Marathon 2025</strong> 🎉
 
@@ -49,12 +34,27 @@ export const timelineData: TimelineEntry[] = [
     title: "E-Sports",
     content: (
       <div className="flex flex-col items-center gap-10">
-        <EventDate date="January 17, 2025" />
+        <EventDate date="January 16, 2025" />
         <p className="text-neutral-600 dark:text-neutral-400 text-center text-base md:text-lg">
           The <strong>Esports</strong> segment of Polaris is a hub for gaming enthusiasts, featuring adrenaline-pumping competitions in <strong>FIFA and BGMI</strong>. It offers participants an exciting platform to display their gaming expertise, strategic planning, and teamwork while competing in a dynamic and high-energy environment.
         </p>
         <div className="flex flex-wrap items-center justify-around gap-4">
           <CustomImage src="/assets/polaris/E-sports.png" alt="Polaris" />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Inauguration",
+    content: (
+      <div className="flex flex-col items-center gap-10">
+        <EventDate date="January 17, 2025" />
+        <p className="text-neutral-600 dark:text-neutral-400 text-center text-base md:text-lg">
+          <strong>Polaris</strong> is Central India’s biggest event, celebrating innovation, creativity, and inspiration. It brings together bright minds, bold ideas, and cutting-edge technologies under one roof. Join us as we kickstart this grand event with an inspiring opening ceremony.
+        </p>
+        <div className="flex flex-wrap items-center justify-around gap-4">
+          <CustomImage src="/assets/polaris/Inogration.JPG" alt="Polaris" />
+          <CustomImage src="/assets/polaris/Inogration1.JPG" alt="Polaris" />
         </div>
       </div>
     ),
@@ -81,6 +81,7 @@ export const timelineData: TimelineEntry[] = [
         <p className="text-neutral-600 dark:text-neutral-400 text-center text-base md:text-lg">
           <strong>Talent Tides</strong>, the <strong>cultural night</strong> at Polaris, is a vibrant celebration of music, dance, and performances, where students showcase their creative talents in an unforgettable evening of entertainment and cultural expression.
         </p>
+          <CustomImage src="/assets/polaris/Cultural_Night.png" alt="Polaris" />
         <div className="flex justify-around flex-wrap w-full items-center gap-4">
           <CustomImage src="/assets/polaris/Event.jpg" alt="Polaris" />
           <CustomImage src="/assets/polaris/Event1.jpg" alt="Polaris" />
