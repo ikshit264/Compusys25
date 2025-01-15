@@ -5,6 +5,8 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
+import Logo from "@/public/assets/images/cselogo.svg"
+import Image from "next/image"
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -32,8 +34,8 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold">
-              Your Logo
+            <Link href="/" className="text-xl text-black font-bold">
+              <Image src={Logo} width={20} height={20} alt="CSE Logo" className="size-12" />
             </Link>
           </div>
 

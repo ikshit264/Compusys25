@@ -17,8 +17,8 @@
       animate: {
         opacity: 1,
         transition: {
-          delayChildren: 0.5,
-          staggerChildren: 0.7,
+          delayChildren: 0.3,
+          staggerChildren: 0.5,
         },
       },
     };
@@ -45,8 +45,8 @@
         setIsGapClosed(true);
         setTimeout(() => {
           setIsAnimationComplete(true);
-        }, 1000);
-      }, 75); // Add a delay to allow the gap-closing animation
+        }, 100);
+      }, 25); // Add a delay to allow the gap-closing animation
     };
 
     return (
@@ -57,7 +57,7 @@
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
-              transition: 'gap 0.4s ease-in-out',
+              transition: 'gap 0.2s ease-in-out',
             }}
             variants={containerVariants}
             initial="initial"

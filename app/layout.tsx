@@ -122,7 +122,7 @@ export default function RootLayout({
           setShowContent(true);
           localStorage.setItem("animationComplete", "true");
           localStorage.setItem("hasVisited", "false");
-        }, 8000);
+        }, 3000);
 
         return () => clearTimeout(timer);
       }

@@ -27,7 +27,7 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
       if (onAnimationComplete) {
         onAnimationComplete(); // Notify parent when animation is complete
       }
-    }, 8000);
+    }, 3000);
     const progressInterval = setInterval(() => {
       setProgress((prev) => (prev < 100 ? prev + 1 : 100));
     }, 75);
@@ -119,7 +119,7 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
                     className="font-bold text-[#91c085] font-kalam"
                     initial={showAnimations ? { opacity: 0, x: 0 } : { opacity: 1, x: 0 }}
                     animate={showAnimations ? { opacity: 1, x: 0 } : { opacity: 1, x: 0 }}
-                    transition={showAnimations ? { duration: 1, delay: 8 } : { duration: 0 }}
+                    transition={showAnimations ? { duration: 1, delay: 2 } : { duration: 0 }}
                   >
                     में आपका स्वागत है।
                   </motion.span>

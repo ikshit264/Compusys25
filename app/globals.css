@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #151419;
+:root {
+    --background: #fffceb;
     --foreground: #fbfbfb;
   }
-} */
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 ::-webkit-scrollbar {
@@ -21,7 +21,7 @@ body {
   clip-path: polygon(100% 85%, 100% 0, 0 0, 0 100%, 23% 100%, 42% 85%);
 }
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -75,16 +75,16 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
+} */
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
 
 @layer utilities {
   .red-outline {
