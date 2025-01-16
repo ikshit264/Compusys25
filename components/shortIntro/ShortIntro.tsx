@@ -18,9 +18,8 @@ const ShortIntro = () => {
   return (
     <div>
       <div
-        className={`flex w-full items-center justify-around p-8 mt-12 ${
-          !isMobileView ? "flex-row" : "flex-col"
-        }`}
+        className={`flex w-full items-center justify-around p-8 mt-12 ${!isMobileView ? "flex-row" : "flex-col"
+          }`}
       >
         <div className={`flex`}>
           {/* Render the first pair of images */}
@@ -60,11 +59,10 @@ const ShortIntro = () => {
         <div>
           <div className="flex justify-center flex-col items-center text-[#161111] text-center">
             <h2 className="text-4xl font-bold mb-2">
-              Let&apos;s make our world cleaner and Greener!
+              When Innovation meets Imagination
             </h2>
             <p className="text-center text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Inventore, distinctio!
+              In the convergence of code and creativity, a new narrative unfolds, echoing the essence of progress and passion
             </p>
           </div>
         </div>

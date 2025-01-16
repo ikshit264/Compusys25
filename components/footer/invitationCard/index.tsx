@@ -100,7 +100,7 @@ const InvitationCard = () => {
     {/* Backside of the letter */}
     <div className={` ${styles.card_back} card-back absolute w-full h-full transform rotateY-180 backface-hidden z-[2]`}>
         <Image
-            src="/assets/images/invitation.png"
+            src="/assets/images/Invitation.svg"
             alt="Back of invitation"
             width={800}
             height={800}
@@ -109,9 +109,9 @@ const InvitationCard = () => {
     </div>
 
     {/* Front side of the letter */}
-    <div className={` ${styles.card_front} absolute w-full h-full backface-hidden z-[3]`}>
+    <div className={` ${styles.card_front} absolute w-full  backface-hidden z-[3] bg-white p-2 rounded-xl`}>
         <Image
-            src="/invitation.png"
+            src="PolarisLogo.svg"
             alt="Front of invitation"
             width={800}
             height={800}

@@ -28,7 +28,7 @@ export default function Navbar() {
         damping: 20,
       }}
     >
-      <nav className="mx-auto max-w-7xl px-4">
+      <nav className="mx-auto md:max-w-7xl px-2">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -45,11 +45,11 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   className={`relative flex items-center gap-2 rounded-2xl px-3 py-2 border ${pathname === item.href
-                    ? "bg-white border-gray-500 font-medium text-black"
+                    ? "bg-white border-gray-500 font-medium text-black underline"
                     : "bg-gray-500 border-gray-400"
                     }`}
                 >
-                  <span className="text-sm">{item.name}</span>
+                  <span className="text-sm md:py-0.5">{item.name}</span>
                 </Link>
               ))}
             </div>
@@ -104,8 +104,8 @@ export default function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-2 text-base rounded bg-black ${pathname === item.href
-                      ? "text-black font-medium bg-gray-100"
+                    className={`block px-3 py-2 text-base rounded-sm ${pathname === item.href
+                      ? "text-black font-medium bg-gray-200"
                       : "text-gray-600 hover:text-black hover:bg-gray-50"
                       }`}
                   >

@@ -132,7 +132,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${combinedFontClassName} antialiased`}>
+      <body className={`${combinedFontClassName} antialiased overflow-x-hidden`}>
         <ReduxProvider>
           {showContent && <Navbar />}
           <main className="flex-grow">{children}</main>
