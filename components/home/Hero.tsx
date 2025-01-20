@@ -240,32 +240,32 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
 
           {/* Content div slides in while image slides up */}
           <motion.div
-            className={`w-full bg-[#2f4230] rounded-3xl p-6 mt-3 flex flex-col justify-center text-[#161111] ${showAnimations ? 'hidden' :''}`}
-            initial={{ y: "100%", opacity: 0}}
-            animate={{ y: 0, opacity: 1}}
-            transition={{duration: 1}}
-                >
-                <div className="flex flex-col gap-4 items-center text-center">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-xl font-semibold flex gap-2">
-                      <span className="flex items-center gap-2 justify-center font-kalam text-[#91c085]">
-                        <span className="size-4 mb-[0.30rem] bg-[#f0e7ce] rounded-full" />
-                        COMPUSYS
-                      </span>
-                      <span className="font-bold font-kalam text-[#91c085]">में आपका स्वागत है।</span>
-                    </span>
-                  </div>
-                  <h1 className="text-3xl font-bold leading-tight text-[#b2d99a] font-fontbo">
-                    Experience the fusion of Technology and Culture
-                  </h1>
-                  <p className="text-base leading-tight text-[#f0e7ce] font-fontfo">
-                    At Compusys, experience the perfect fusion of the latest technologies
-                    and timeless cultural influences, driving new possibilities for
-                    tomorrow.
-                  </p>
-                </div>
+            className={`w-full bg-[#2f4230] rounded-3xl p-6 mt-3 flex flex-col justify-center text-[#161111] ${showAnimations ? 'hidden' : ''}`}
+            initial={{ y: "100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="flex flex-col gap-4 items-center text-center">
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-xl font-semibold flex gap-2">
+                  <span className="flex items-center gap-2 justify-center font-kalam text-[#91c085]">
+                    <span className="flex size-4 mb-[0.30rem] bg-[#f0e7ce] rounded-full" />
+                    COMPUSYS
+                  </span>
+                  <span className="font-bold font-kalam text-[#91c085]">में आपका स्वागत है।</span>
+                </span>
+              </div>
+              <h1 className="text-3xl font-bold leading-tight text-[#b2d99a] font-fontbo">
+                Experience the fusion of Technology and Culture
+              </h1>
+              <p className="text-base leading-tight text-[#f0e7ce] font-fontfo">
+                At Compusys, experience the perfect fusion of the latest technologies
+                and timeless cultural influences, driving new possibilities for
+                tomorrow.
+              </p>
+            </div>
           </motion.div>
-      </motion.div>
+        </motion.div>
       </div >
     )
   );

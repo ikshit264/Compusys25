@@ -87,7 +87,10 @@ export default {
   					'offset-distance': '100%'
   				}
   			}
-  		}
+  		},
+		screens:{
+			md:"1000px"
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

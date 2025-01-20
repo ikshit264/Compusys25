@@ -30,7 +30,7 @@ export const useIsPhone = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      dispatch(isMobileViewSlice.actions.setMobileView(window.innerWidth <= 768));
+      dispatch(isMobileViewSlice.actions.setMobileView(window.innerWidth <= 1200));
     };
 
     handleResize(); // Set initial state
