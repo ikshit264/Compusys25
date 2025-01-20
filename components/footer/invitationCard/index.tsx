@@ -1,5 +1,3 @@
-
-
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./card.module.css";
@@ -22,47 +20,54 @@ const InvitationCard = () => {
                     const tl = gsap.timeline({
                         onComplete: () => {
                             // Ensure the letter remains scaled after animation
-                           gsap.set(letterRef.current, { scale: 2.5 });
+                            gsap.set(letterRef.current, { scale: isMobileView ? 1.5 : 2.5 });
                         },
                     });
 
-                  
-                        
-                        tl.to(topRef.current, {
-                            rotationX: 180,
-                            transformOrigin: "top",
-                            duration: 0.5,
-                            zIndex: 2,
+                    tl.to(topRef.current, {
+                        rotationX: 180,
+                        transformOrigin: "top",
+                        duration: 0.5,
+                        zIndex: 2,
+                    })
+                        .to(".top", {
+                            zIndex: 0,
                         })
-                            .to('.top', {
-                                zIndex: 0,
-                            })
-                            .to(letterRef.current, {
+                        .to(
+                            letterRef.current,
+                            {
                                 y: "-100%",
                                 zIndex: 2,
                                 duration: 1,
-                            }, 'card')
-                            .to('.card', {
-                       // boxShadow: "0px -20px 40px 10px rgba(0, 255, 0,0.5)", // 
-                    
-                            }, 'card')
-                            .to('.letter', {
-                                zIndex: 8,
-                            })
-                            .to(".letter", {
+                            },
+                            "card"
+                        )
+                        .to(
+                            ".card",
+                            {
+                                // Optional shadow or styling changes
+                            },
+                            "card"
+                        )
+                        .to(".letter", {
+                            zIndex: 8,
+                        })
+                        .to(
+                            ".letter",
+                            {
                                 y: "0%",
                                 duration: 2.5,
                                 zIndex: 6,
-                                scale: 1.4,
-                            }, "a")
-                        
-                            tl.to('.letter', {
-                               rotateY:180,
-                               duration:2,
-                               scale:2.5,
-                            
-                            })
-        
+                                scale: isMobileView ? 1.2 : 1.4,
+                            },
+                            "a"
+                        );
+
+                    tl.to(".letter", {
+                        rotateY: 180,
+                        duration: 2,
+                        scale: isMobileView ? 1.5 : 2.5,
+                    });
 
                     setPlayed(true); // Mark the animation as played
                 }
@@ -81,50 +86,51 @@ const InvitationCard = () => {
         return () => {
             observer.disconnect();
         };
-    }, [played]); // Dependency on "played" to prevent reruns
+    }, [played, isMobileView]); // Dependency on "played" and "isMobileView"
 
     return (
         <div
-            className={`flex flex-col items-center h-[60vh] justify-center mt-[25vh] ${isMobileView ? "" : ""}`}
+            className={`flex flex-col items-center h-[60vh] justify-center mt-[25vh]`}
         >
             <div
-                className={`${styles.envelope} md:scale-[1.2] scale-[0.9] flex items-center justify-center`}
+                className={`${styles.envelope} ${isMobileView ? "scale-[0.8]" : "md:scale-[1.2] scale-[0.9]"} flex items-center justify-center`}
                 ref={envelopeRef}
             >
                 <div className={`${styles.shadow}`}></div>
                 <div className={`bg-slate-900 ${styles.back}`}></div>
 
-              
-              
                 <div className={`letter ${styles.letter}`} ref={letterRef}>
-    {/* Backside of the letter */}
-    <div className={` ${styles.card_back} card-back absolute w-full h-full transform rotateY-180 backface-hidden z-[2]`}>
-        <Image
-            src="/assets/images/Invitation.svg"
-            alt="Back of invitation"
-            width={800}
-            height={800}
-            className="rounded-[16px]"
-        />
-    </div>
+                    {/* Backside of the letter */}
+                    <div
+                        className={`${styles.card_back} card-back absolute w-full h-full transform rotateY-180 backface-hidden z-[2]`}
+                    >
+                        <Image
+                            src="/assets/images/Invitation.svg"
+                            alt="Back of invitation"
+                            width={isMobileView ? 300 : 800}
+                            height={isMobileView ? 300 : 800}
+                            className="rounded-[16px]"
+                        />
+                    </div>
 
-    {/* Front side of the letter */}
-    <div className={` ${styles.card_front} absolute w-full  backface-hidden z-[3] bg-white p-2 rounded-xl`}>
-        <Image
-            src="PolarisLogo.svg"
-            alt="Front of invitation"
-            width={800}
-            height={800}
-            className="rounded-[16px]"
-        />
-    </div>
-</div>
- 
-              
+                    {/* Front side of the letter */}
+                    <div
+                        className={`${styles.card_front} absolute w-full backface-hidden z-[3] bg-white p-2 rounded-xl`}
+                    >
+                        <Image
+                            src="PolarisLogo.svg"
+                            alt="Front of invitation"
+                            width={isMobileView ? 300 : 800}
+                            height={isMobileView ? 300 : 800}
+                            className="rounded-[16px]"
+                        />
+                    </div>
+                </div>
+
                 <div className={`${styles.front}`}>
                     <svg
-                        width="348"
-                        height="248"
+                        width={"348"}
+                        height={"248"}
                         viewBox="0 0 348 248"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"

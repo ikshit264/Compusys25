@@ -44,7 +44,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`relative flex items-center gap-2 rounded-2xl px-3 py-2 border ${pathname === item.href
+                  className={`relative flex items-center gap-2 rounded-2xl px-3 py-2 border ${(pathname === item.href + '/') || (pathname === item.href) 
                     ? "bg-white border-gray-500 font-medium text-black underline"
                     : "bg-gray-500 border-gray-400"
                     }`}
@@ -104,7 +104,7 @@ export default function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-2 text-base rounded-sm ${pathname === item.href
+                    className={`block px-3 py-2 text-base rounded-sm ${(pathname === item.href + '/') || (pathname === item.href) 
                       ? "text-black font-medium bg-gray-200"
                       : "text-gray-600 hover:text-black hover:bg-gray-50"
                       }`}
