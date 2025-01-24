@@ -3,7 +3,7 @@ import LetterAnimation from '../home/LetterAnimation'
 
 const MemberHero = () => {
   return (
-    <section className='h-[90vh] flex items-center justify-center'>
+    <section className='max-h-[900px] flex items-center justify-center'>
         <div className=''>
         <h1 className="font-kalam text-center text-slate-700 m-20 flex flex-col justify-center items-center">
         <span className="whitespace-nowrap text-9xl font-bold uppercase max-md:text-8xl max-sm:text-7xl text-teal-600">

@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden ">
       <Hero
         showAnimations={!isAnimationComplete}  // Only show animation if not complete
         onAnimationComplete={handleAnimationComplete}

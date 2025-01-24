@@ -179,7 +179,7 @@ export default function Hero({ onAnimationComplete, showAnimations }: HeroProps)
         </div>
       </motion.div>
     ) : (
-      <div className='p-4'>
+      <div className='p-4 max-h-[900px]'>
         {/* Progress animation */}
         {showAnimations && (
           <motion.div
