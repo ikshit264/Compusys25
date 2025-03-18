@@ -3,7 +3,6 @@
 import { Timeline } from '@/components/polaris/Timeline'
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
-import Polaris from "../../public/PolarisLogo.svg"
 import { motion } from "framer-motion";
 import { timelineData } from '@/data/timeline';
 import { ChaptersCard } from '@/components/polaris/ChaptersCard';
