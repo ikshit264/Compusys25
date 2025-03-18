@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useIsPhone } from '@/hooks/IsPhone';
+import { getCdnUrl } from '@/utils/CdnWrapper';
 
 interface AnimatedGridProps {
   images: string[];
@@ -73,7 +74,7 @@ const AnimatedGrid = ({ images, finalImage, AnimationCompleted }: AnimatedGridPr
               variants={itemVariants}
             >
               <Image
-                src={src}
+                src={getCdnUrl(src)}
                 alt={`Grid part ${index + 1}`}
                 width={400}
                 height={400}
@@ -88,7 +89,7 @@ const AnimatedGrid = ({ images, finalImage, AnimationCompleted }: AnimatedGridPr
           className={`${isMobileView ? 'max-w-[80vw]' :'w-full'} rounded`}
         >
           <Image
-            src={finalImage}
+            src={getCdnUrl(finalImage)}
             alt="Desert landscape"
             width={800}
             height={600}

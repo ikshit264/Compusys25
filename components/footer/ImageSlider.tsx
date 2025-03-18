@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { getCdnUrl } from '@/utils/CdnWrapper';
 
 interface ImageSliderProps {
   images: string[];
@@ -43,7 +44,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval = 5000 }) =>
           className="absolute top-0 left-0 w-full h-full"
         >
           <Image
-            src={images[currentIndex]}
+            src={getCdnUrl(images[currentIndex])}
             alt={`Slide ${currentIndex + 1}`}
             fill // Makes the image cover the parent container
             sizes="(max-width: 768px) 100vw, 33vw"

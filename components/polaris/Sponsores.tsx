@@ -1,10 +1,11 @@
+import { getCdnUrl } from '@/utils/CdnWrapper';
 import Image from 'next/image'
 import React from 'react'
 
 const Sponsores = () => {
 
   const CustomImage = ({ src, alt }: { src: string; alt: string }) => (
-    <Image src={src} alt={alt} width={400} height={10} className='rounded-md shadow-lg shadow-black' />
+    <Image src={getCdnUrl(src)} alt={alt} width={400} height={10} className='rounded-md shadow-lg shadow-black' />
   );
 
   return (

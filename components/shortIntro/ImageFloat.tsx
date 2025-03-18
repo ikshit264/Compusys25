@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useIsPhone } from "@/hooks/IsPhone";
+import { getCdnUrl } from "@/utils/CdnWrapper";
 
 interface ImageFloatProps {
   image1Start: { top: string; left: string; duration: number; src: string };
@@ -58,7 +59,7 @@ const ImageFloat: React.FC<ImageFloatProps> = ({ image1Start, image2Start }) => 
     },
   };
 
-  const getFullPath = (src: string) => `/assets/images/${src}`;
+  const getFullPath = (src: string) => getCdnUrl(`/assets/images/${src}`);
 
   return (
     <div className="relative w-56 h-56" onMouseMove={handleMouseMove}>

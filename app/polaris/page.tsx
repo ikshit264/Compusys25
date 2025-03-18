@@ -11,6 +11,7 @@ import { Chapters } from '@/data/chapters';
 import Sponsores from '@/components/polaris/Sponsores';
 import bird from "../../public/assets/polaris/video3.gif";
 import { useIsPhone } from '@/hooks/IsPhone';
+import { getCdnUrl } from '@/utils/CdnWrapper';
 
 export default function Page() {
   const [isClient, setIsClient] = useState(false);
@@ -68,7 +69,7 @@ export default function Page() {
         )}
       <div className="w-full max-w-4xl mb-8 md:mb-16">
         <Image
-          src={Polaris}
+          src={getCdnUrl('/PolarisLogo.svg')}
           className='w-full h-auto max-h-[85vh] object-contain'
           alt='Polaris'
           width={700}

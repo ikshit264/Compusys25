@@ -4,8 +4,8 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import Logo from "@/public/assets/images/cselogo.svg"
 import Image from "next/image"
+import { getCdnUrl } from "@/utils/CdnWrapper"
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="text-xl text-black font-bold">
-              <Image src={Logo} width={30} height={20} alt="CSE Logo" className="size-12 md:size-16 md:translate-y-1" />
+              <Image loading="lazy"  src={getCdnUrl('/assets/images/cselogo.svg')} width={30} height={20} alt="CSE Logo" className="size-12 md:size-16 md:translate-y-1" />
             </Link>
           </div>
 

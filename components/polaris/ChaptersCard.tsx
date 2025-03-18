@@ -4,6 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { getCdnUrl } from "@/utils/CdnWrapper";
 
 type Testimonial = {
   message: React.ReactNode;
@@ -45,7 +46,7 @@ export const ChaptersCard = ({
   };
 
   const CustomImage = ({ src, alt }: { src: string; alt: string }) => (
-    <Image src={src} alt={alt} width={400} height={10} className='rounded-md shadow-lg shadow-black' />
+    <Image src={getCdnUrl(src)} alt={alt} width={400} height={10} className='rounded-md shadow-lg shadow-black' />
   );
 
   return (

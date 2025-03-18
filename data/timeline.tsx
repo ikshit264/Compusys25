@@ -1,3 +1,4 @@
+import { getCdnUrl } from "@/utils/CdnWrapper";
 import Image from "next/image";
 
 interface TimelineEntry {
@@ -12,7 +13,7 @@ const EventDate = ({ date }: { date: string }) => (
 );
 
 const CustomImage = ({ src, alt }: { src: string; alt: string }) => (
-  <Image src={src} alt={alt} width={400} height={10} className="shadow-lg shadow-black rounded-sm" />
+  <Image src={getCdnUrl(src)} alt={alt} width={400} height={10} className="shadow-lg shadow-black rounded-sm" />
 );
 
 export const timelineData: TimelineEntry[] = [

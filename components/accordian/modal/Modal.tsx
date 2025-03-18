@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./style.module.css";
 import gsap from "gsap";
+import { getCdnUrl } from "@/utils/CdnWrapper";
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -95,7 +96,7 @@ const Modal: React.FC<ModalProps> = ({ modal, projects }) => {
                   key={`modal_${index}`}
                 >
                   <Image
-                    src={`/assets/images/${src}`}
+                    src={getCdnUrl(`/assets/images/${src}`)}
                     width={300}
                     height={0}
                     alt="image"

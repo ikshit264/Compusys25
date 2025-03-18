@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useIsPhone } from "@/hooks/IsPhone";
+import { getCdnUrl } from "@/utils/CdnWrapper";
 
 interface PersonCardProps {
   imageSrc: string;
@@ -32,7 +33,7 @@ imageSrc , name , role
         <div className="absolute top-0 flex h-full w-[90%] flex-col items-center gap-[10px] overflow-hidden  border-none bg-[#b2d99a] shadow-lg  hover:shadow-gray-400">
           <div className={`relative ${isMobileView ?  'h-full' : 'h-[80%]'} w-full transform transition-transform duration-500 ease-in-out group-hover:scale-105`}>
             <Image
-              src={imageSrc}
+              src={getCdnUrl(imageSrc)}
               alt={`${name}'s profile`}
               fill
               className=" absolute object-cover mt-2 mx-auto"
