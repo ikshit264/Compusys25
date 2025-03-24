@@ -131,14 +131,47 @@ export default function RootLayout({
   }, [pathname]);
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${combinedFontClassName} antialiased overflow-x-hidden`}>
-        <ReduxProvider>
-          {showContent && <Navbar />}
-          <main className="flex-grow">{children}</main>
-          {showContent && <Footer />}
-        </ReduxProvider>
-      </body>
-    </html>
+<html lang="en">
+  <head>
+    <title>Polaris | CompuSys CSE</title>
+    <meta 
+      name="description" 
+      content="Join Polaris, Central India's biggest tech event organized by CompuSys (CSE Department). Explore innovation, networking, and competitions across all college chapters." 
+    />
+    <meta 
+      name="keywords" 
+      content="Polaris, CompuSys, CSE event, Central India tech fest, college tech event, hackathon, coding competition, innovation, technology, networking, student chapters" 
+    />
+    <meta name="author" content="CompuSys - CSE Department" />
+
+    <meta property="og:title" content="Polaris - Central India's Biggest Tech Event | CompuSys CSE" />
+    <meta 
+      property="og:description" 
+      content="Join Polaris, Central India's biggest tech event organized by CompuSys (CSE Department). Experience innovation, networking, and exciting competitions." 
+    />
+    <meta property="og:image" content="/polaris-og-image.png" />
+    <meta property="og:url" content="https://polaris-event.com" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Polaris - Central India's Biggest Tech Event | CompuSys CSE" />
+    <meta 
+      name="twitter:description" 
+      content="Polaris, hosted by CompuSys (CSE Dept), is the largest tech event in Central India, bringing together college chapters for innovation & competitions." 
+    />
+    <meta name="twitter:image" content="/polaris-og-image.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body className={`${combinedFontClassName} antialiased overflow-x-hidden`}>
+    <ReduxProvider>
+      {showContent && <Navbar />}
+      <main className="flex-grow">{children}</main>
+      {showContent && <Footer />}
+    </ReduxProvider>
+  </body>
+</html>
+
   );
 }
