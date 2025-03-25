@@ -7,7 +7,7 @@
 const cdnConfig = {
   // GitHub settings
   github: {
-    username: "ikshit004",
+    username: "ikshit264",
     repo: "CDN-Images",
     branch: "webp",
     enabled: true,
